@@ -18,10 +18,13 @@
             <table>
 
                 <thead>
+
                     <tr>
                         <th scope="col" rowspan="3"></th>
                         <th scope="col" colspan="6" class="rating-scale-header">RATING SCALE</th>
                     </tr>
+
+                    <!-- The radio button headings -->
                     <tr>
                         <th scope="col">STRONGLY AGREE</th>
                         <th scope="col">AGREE</th>
@@ -49,7 +52,10 @@
                     </tr>
                 </thead>
 
+                <!-- This section contains questions which can be updated as need be -->
                 <tbody>
+
+                    <!-- ############# Question 1 ############ -->
                     <tr>
                         <td data-label="QUESTION #1">The communications I have received about the change
                             initiative are clear and I understand them.</td>
@@ -90,6 +96,8 @@
                             </label>
                         </td>
                     </tr>
+
+                    <!-- ############# Question 2 ############ -->
                     <tr>
                         <td data-label="QUESTION #2">I have enough information to understand details of the
                             change initaitive. </td>
@@ -131,6 +139,7 @@
                         </td>
                     </tr>
 
+                    <!-- ############# Question 3 ############ -->
                     <tr>
                         <td data-label="QUESTION #3">All communications that I have received about the
                             change initiative have been consistent.</td>
@@ -172,6 +181,7 @@
                         </td>
                     </tr>
 
+                    <!-- ############# Question 4 ############ -->
                     <tr>
                         <td data-label="QUESTION #4">From the communication that I have received, I
                             understand the personal implications of the change
@@ -214,6 +224,7 @@
                         </td>
                     </tr>
 
+                    <!-- ############# Question 5 ############ -->
                     <tr>
                         <td data-label="QUESTION #5">The communications have been clear on the change
                             initative on how they align with the ORIX Values.</td>
@@ -255,6 +266,7 @@
                         </td>
                     </tr>
 
+                    <!-- ############# Question 6 ############ -->
                     <tr>
                         <td data-label="QUESTION #6">I believe that information about this change initative has
                             been delivered in a timely way, so that any key actions that
@@ -296,6 +308,7 @@
                             </label>
                         </td>
 
+                        <!-- ############# Question 7 ############ -->
                     <tr>
                         <td data-label="QUESTION #7">I have trust in the Sponsors and Leaders of this
                             change initiative.</td>
@@ -336,6 +349,7 @@
                             </label>
                         </td>
 
+                        <!-- ############# Question 8 ############ -->
                     <tr>
                         <td data-label="QUESTION #8">I have been given sufficient opportunity to ask
                             questions and clarify the content of the change
@@ -380,21 +394,27 @@
 
                 </tbody>
             </table>
+
+            <!-- Progress bar to track the progress of the form i.e how much % completed -->
             <div id="progress-div">
                 <label id="progress-label">PROGRESS:</label>
                 <progress id="progress" max="100" value="10"></progress>
             </div>
+
+            <!-- This section calculates score and displays onto the screen, also contains refresh button -->
             <div id="score-div">
                 <input type="button" id="result-button" value="CALCULATE SCORE" onClick="calResult()" disabled>
-                <button type="button" id="reset-button" onClick="resetQuestionnaire()"><i class="fa fa-repeat"></i></i> RESET</button>
-                
+                <button type="button" id="reset-button" onClick="resetQuestionnaire()"><i class="fa fa-repeat"></i></i>
+                    RESET</button>
+
             </div>
         </form>
 
+        <!-- RESULTS SECTION after the result button is clicked -->
         <div id="result-div">
             <h2 id="result-heading">RESULTS</h2>
 
-            <!-- SUCCESS -->
+            <!-- SUCCESS animation -->
             <div class="screenAlert-icon screenAlert-success animate success-sign">
                 <span class="screenAlert-line screenAlert-tip animateSuccessTip"></span>
                 <span class="screenAlert-line screenAlert-long animateSuccessLong"></span>
@@ -402,13 +422,13 @@
                 <div class="screenAlert-fix"></div>
             </div>
 
-            <!-- WARNING -->
+            <!-- WARNING animation -->
             <div class="screenAlert-icon screenAlert-warning scaleWarning warning-sign">
                 <span class="screenAlert-body pulseWarningIns"></span>
                 <span class="screenAlert-dot pulseWarningIns"></span>
             </div>
 
-            <!-- ALERT -->
+            <!-- ALERT animation -->
             <div class="screenAlert-icon screenAlert-error animate scaleWarning alert-sign">
                 <span class="screenAlert-x-mark">
                     <span class="screenAlert-line screenAlert-left animateXLeft"></span>
@@ -418,8 +438,16 @@
                 <div class="screenAlert-fix"></div>
             </div>
 
-
-            <div class="result-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ipsum, quibusdam quisquam nulla voluptates itaque animi, quaerat officiis, fugit accusamus eos nostrum facere omnis? Dicta expedita alias id odit quisquam sunt mollitia fugit maxime placeat exercitationem laboriosam voluptatibus, vero itaque nam non asperiores sit molestiae. Dicta cum nihil amet saepe quisquam optio ipsa neque perspiciatis quae, quos temporibus fugiat provident. Consectetur rerum delectus eveniet, totam fugit facilis veritatis expedita aspernatur, earum dolor repudiandae a, eum odio incidunt pariatur temporibus ex facere nihil ipsam. Reiciendis, odio aspernatur voluptas hic ullam minima tenetur blanditiis voluptatibus eaque, dolor veniam, repellat fugit. Perferendis, explicabo!</div>
+            <!-- Result section containing lorem lipsum, update the message!! -->
+            <div class="result-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ipsum,
+                quibusdam quisquam nulla voluptates itaque animi, quaerat officiis, fugit accusamus eos nostrum facere
+                omnis? Dicta expedita alias id odit quisquam sunt mollitia fugit maxime placeat exercitationem
+                laboriosam voluptatibus, vero itaque nam non asperiores sit molestiae. Dicta cum nihil amet saepe
+                quisquam optio ipsa neque perspiciatis quae, quos temporibus fugiat provident. Consectetur rerum
+                delectus eveniet, totam fugit facilis veritatis expedita aspernatur, earum dolor repudiandae a, eum odio
+                incidunt pariatur temporibus ex facere nihil ipsam. Reiciendis, odio aspernatur voluptas hic ullam
+                minima tenetur blanditiis voluptatibus eaque, dolor veniam, repellat fugit. Perferendis, explicabo!
+            </div>
         </div>
     </div>
 
