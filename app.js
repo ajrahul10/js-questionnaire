@@ -18,6 +18,11 @@ function calResult() {
     document.getElementById('result-heading').innerHTML = `YOUR SCORE: ${resultScore}`
 
     if(resultScore <= 16) {
+
+        document.getElementsByClassName('success-sign')[0].style.display = 'block';
+        document.getElementsByClassName('warning-sign')[0].style.display = 'none';
+        document.getElementsByClassName('alert-sign')[0].style.display = 'none';
+
         document.getElementById('result-div').classList.add('result-green-color', 'result-green-border');
 
         document.getElementById('result-heading').classList.add('result-green-color');
@@ -27,6 +32,11 @@ function calResult() {
         document.getElementById('result-heading').classList.remove('result-orange-color', 'result-red-color');
         
     } else if(resultScore <= 32) {
+
+        document.getElementsByClassName('warning-sign')[0].style.display = 'block';
+        document.getElementsByClassName('success-sign')[0].style.display = 'none';
+        document.getElementsByClassName('alert-sign')[0].style.display = 'none';
+
         document.getElementById('result-div').classList.add('result-orange-color', 'result-orange-border');
 
         document.getElementById('result-heading').classList.add('result-orange-color');
@@ -36,6 +46,11 @@ function calResult() {
         document.getElementById('result-heading').classList.remove('result-green-color', 'result-red-color');
 
     } else {
+
+        document.getElementsByClassName('alert-sign')[0].style.display = 'block';
+        document.getElementsByClassName('success-sign')[0].style.display = 'none';
+        document.getElementsByClassName('warning-sign')[0].style.display = 'none';
+
         document.getElementById('result-div').classList.add('result-red-color', 'result-red-border');
 
         document.getElementById('result-heading').classList.add('result-red-color');
