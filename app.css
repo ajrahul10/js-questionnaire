@@ -282,9 +282,9 @@ body {
     }
     
   tbody tr td:nth-child(1) {
-    height: 40px;
+    height: 100px;
     font-weight: 100;
-    font-size: 1.8em;
+    font-size: 2.5em;
   }
     
     table tr {
@@ -296,7 +296,7 @@ body {
     table td {
       border-bottom: 1px solid #ddd;
       display: block;
-      font-size: 1.8em;
+      font-size: 2.5em;
       text-align: right;
     }
     
@@ -317,7 +317,7 @@ body {
     }
 
     #questionnaire-container {
-        height: 6200px;
+        height: 8500px;
     }
 
     #result-heading {
@@ -355,15 +355,16 @@ body {
     }
 
     .container .checkmark:after {
-        top: 10.4px;
-        left: 10px;
-        width: 15px;
-        height: 15px;
+        top: 12.4px;
+        left: 13px;
+        width: 20px;
+        height: 20px;
     }
 
     .checkmark {
-        height: 35px;
-        width: 35px;
+        height: 45px;
+        width: 45px;
+        left: 93%;
     }
     
   }
