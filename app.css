@@ -1,0 +1,354 @@
+body {
+    font-family: Helvetica, Verdana, "Open Sans", sans-serif;
+    line-height: 1.25;
+    font-size: 0.85em;
+    background-color: rgba(176, 225, 240, 0.577);
+    height: 1500px;
+  }
+
+  #questionnaire-heading {
+      text-align: center;
+      color: teal;
+      margin: 50px auto;
+      width: 1200px;
+  }
+
+  #progress-bar-div {
+      position: fixed;
+  }
+
+  #questionnaire-container {
+    border: 1px solid black;
+    padding: 20px;
+    width: 1200px;
+    margin: 80px auto;
+    background-color: white;
+    height: 1300px;
+  }
+  
+  table {
+    /* border: 1px solid #ccc; */
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+  table tr th:nth-child(1){
+    width: 450px;
+  }
+
+  tbody tr td:nth-child(1) {
+    height: 40px;
+    font-weight: 100;
+  }
+
+  .rating-scale-header {
+    height: 30px;
+    background-color: #045979;
+    color: white;
+    font-size: 1.3em;
+    letter-spacing: 0.25em;
+  }
+  .questions-header {
+    height: 30px;
+    color: white;
+    background-color: #045979;
+    letter-spacing: 0.25em;
+    font-size: 1.25em;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    margin: .5em 0 .75em;
+  }
+  
+  table tr {
+    /* background-color: #f8f8f8; */
+    /* border: 1px solid #ddd; */
+    padding: .35em;
+  }
+  
+  table th,
+  table td {
+    padding: 0.425em 0em;
+    text-align: center;
+  }
+  
+  table th {
+    font-size: 0.85em;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+  }
+
+  tbody {
+    border: 2px solid #045979;
+  }
+
+  table td {
+      padding: 1.5em 1em;
+  }
+
+  tbody tr {
+    border: 1px solid #035a79;
+  }
+
+  .container {
+    display: block;
+    position: relative;
+    padding-left: 35px;
+    margin-bottom: 12px;
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+  
+  /* Hide the browser's default radio button */
+  .container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Create a custom radio button */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 40%;
+    height: 18px;
+    width: 18px;
+    background-color: #eee;
+    border-radius: 50%;
+  }
+  
+  .container:hover input.option-green ~ .checkmark {
+    background-color: green;
+  }
+  .container:hover input.option-orange ~ .checkmark {
+    background-color: orange;
+  }
+  .container:hover input.option-red ~ .checkmark {
+    background-color: red;
+  }
+  
+  .container input.option-green:checked ~ .checkmark {
+    background-color: green;
+  }
+  .container input.option-orange:checked ~ .checkmark {
+    background-color: orange;
+  }
+  .container input.option-red:checked ~ .checkmark {
+    background-color: red;
+  }
+  
+  /* Create the indicator (the dot/circle - hidden when not checked) */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Show the indicator (dot/circle) when checked */
+  .container input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Style the indicator (dot/circle) */
+  .container .checkmark:after {
+       top: 5.5px;
+      left: 5.2px;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: white;
+  }
+
+  #result-button, #reset-button {
+    border: 1px solid #133557;
+    background-color: #167696;
+    color: #ffffff;
+    padding: 12px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #result-button:hover, #reset-button:hover {
+    border: 1px solid #0e5a74;
+    background-color: #2996ac;
+    color: #ffffff;
+    padding: 12px 15px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  #result-button:disabled,
+  #result-button[disabled]{
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666;
+    padding: 12px 15px;
+    font-size: 16px;
+    cursor: not-allowed;
+  }
+
+  #reset-button {
+      display: none;
+  }
+
+  #score-div {
+    text-align: center;
+    padding: 20px;
+  }
+
+  #progress-div {
+    text-align: right;
+    padding: 40px;
+  }
+
+  #progress-label {
+    font-size: 15px;
+    color: #11566d;
+  }
+
+  #result-div {
+      width: 1000px;
+      text-align: center;
+      border: 2px solid teal;
+      margin: auto;
+      margin-top: 40px;
+      display: none;
+  }
+
+  #result-heading {
+      color: teal;
+  }
+
+  .result-content {
+      padding: 20px;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .result-green-color {
+    color: green !important;
+  }
+
+  .result-green-border {
+    border: 2px solid green !important;
+  }
+
+  .result-orange-color {
+    color: orange !important;
+  }
+
+  .result-orange-border {
+    border: 2px solid orange !important;
+  }
+
+  .result-red-color {
+    color: red !important;
+  }
+
+  .result-red-border {
+    border: 2px solid red !important;
+  }
+  
+  @media screen and (max-width: 800px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      width: 1px;
+    }
+    
+  tbody tr td:nth-child(1) {
+    height: 40px;
+    font-weight: 100;
+    font-size: 1.8em;
+  }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: 1.8em;
+      text-align: right;
+    }
+    
+    table td::before {
+      content: attr(data-label);
+      float: left;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+
+    .checkmark {
+        top: -6px;
+        left: 90%;
+    }
+
+    #questionnaire-container {
+        height: 6200px;
+    }
+
+    #result-heading {
+        font-size: 2.5em;
+    }
+
+    .result-content {
+        font-size: 1.8em;
+    }
+
+    #result-button {
+        font-size: 30px;
+    }
+    
+    #result-button:disabled,
+    #result-button[disabled]{
+        font-size: 30px;
+    }
+
+    #reset-button {
+        font-size: 30px;
+    }
+
+    #progress-label {
+        font-size: 25px;
+    }
+
+    #progress {
+        height: 1.5em;
+        width: 14em;
+    }
+
+    #questionnaire-heading { 
+        font-size: 1.8em;
+    }
+  }

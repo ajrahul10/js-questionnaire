@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Questionnaire</title>
+    <link rel="stylesheet" href="app.css" />
+</head>
+
+<body>
+    <div id="questionnaire-heading">
+        <h1>QUESTIONNAIRE</h1>
+    </div>
+    <div id="questionnaire-container">
+        <form action="submit" id="form-container">
+            <table>
+
+                <thead>
+                    <tr>
+                        <th scope="col" rowspan="3"></th>
+                        <th scope="col" colspan="6" class="rating-scale-header">RATING SCALE</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">STRONGLY AGREE</th>
+                        <th scope="col">AGREE</th>
+                        <th scope="col">SLIGHTLY AGREE</th>
+                        <th scope="col">SLIGHTLY DISAGREE</th>
+                        <th scope="col">DISAGREE</th>
+                        <th scope="col">STRONGLY DISAGREE</th>
+                    </tr>
+                    <tr>
+                        <th scope="col">1</th>
+                        <th scope="col">2</th>
+                        <th scope="col">3</th>
+                        <th scope="col">4</th>
+                        <th scope="col">5</th>
+                        <th scope="col">6</th>
+                    </tr>
+                    <tr>
+                        <th scope="col" class="questions-header">QUESTIONS</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <tr>
+                        <td data-label="QUESTION #1">The communications I have received about the change
+                            initiative are clear and I understand them.</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques1" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques1" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques1" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques1" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques1" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques1" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td data-label="QUESTION #2">I have enough information to understand details of the
+                            change initaitive. </td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques2" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques2" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques2" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques2" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques2" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques2" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="QUESTION #3">All communications that I have received about the
+                            change initiative have been consistent.</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques3" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques3" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques3" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques3" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques3" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques3" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="QUESTION #4">From the communication that I have received, I
+                            understand the personal implications of the change
+                            initative that affect me4</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques4" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques4" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques4" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques4" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques4" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques4" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="QUESTION #5">The communications have been clear on the change
+                            initative on how they align with the ORIX Values.</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques5" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques5" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques5" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques5" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques5" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques5" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td data-label="QUESTION #6">I believe that information about this change initative has
+                            been delivered in a timely way, so that any key actions that
+                            affect me can be completed on time.</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques6" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques6" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques6" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques6" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques6" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques6" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+
+                    <tr>
+                        <td data-label="QUESTION #7">I have trust in the Sponsors and Leaders of this
+                            change initiative.</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques7" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques7" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques7" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques7" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques7" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques7" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+
+                    <tr>
+                        <td data-label="QUESTION #8">I have been given sufficient opportunity to ask
+                            questions and clarify the content of the change
+                            initative or reasons for it.</td>
+                        <td data-label="STRONGLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques8" value="1" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques8" value="2" class="option-green">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY AGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques8" value="3" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="SLIGHTLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques8" value="4" class="option-orange">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques8" value="5" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                        <td data-label="STRONGLY DISAGREE">
+                            <label class='container'>
+                                <input type="radio" name="ques8" value="6" class="option-red">
+                                <span class='checkmark'></span>
+                            </label>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            <div id="progress-div">
+                <label id="progress-label">PROGRESS:</label>
+                <progress id="progress" max="100" value="10"></progress>
+            </div>
+            <div id="score-div">
+                <input type="button" id="result-button" value="CALCULATE SCORE" onClick="calResult()" disabled>
+                <button type="button" id="reset-button" onClick="resetQuestionnaire()"><i class="fa fa-repeat"></i></i> RESET</button>
+                
+            </div>
+        </form>
+
+        <div id="result-div">
+            <h2 id="result-heading">RESULTS</h2>
+            <div class="result-content">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum ipsum, quibusdam quisquam nulla voluptates itaque animi, quaerat officiis, fugit accusamus eos nostrum facere omnis? Dicta expedita alias id odit quisquam sunt mollitia fugit maxime placeat exercitationem laboriosam voluptatibus, vero itaque nam non asperiores sit molestiae. Dicta cum nihil amet saepe quisquam optio ipsa neque perspiciatis quae, quos temporibus fugiat provident. Consectetur rerum delectus eveniet, totam fugit facilis veritatis expedita aspernatur, earum dolor repudiandae a, eum odio incidunt pariatur temporibus ex facere nihil ipsam. Reiciendis, odio aspernatur voluptas hic ullam minima tenetur blanditiis voluptatibus eaque, dolor veniam, repellat fugit. Perferendis, explicabo!</div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</body>
+
+</html>
