@@ -283,7 +283,7 @@ body {
     
   tbody tr td:nth-child(1) {
     height: 100px;
-    font-weight: 100;
+    font-weight: 500;
     font-size: 2.5em;
   }
     
@@ -317,37 +317,37 @@ body {
     }
 
     #questionnaire-container {
-        height: 8500px;
+        height: 8800px;
     }
 
     #result-heading {
-        font-size: 2.5em;
+        font-size: 4.0em;
     }
 
     .result-content {
-        font-size: 1.8em;
+        font-size: 2.5em;
     }
 
     #result-button {
-        font-size: 30px;
+        font-size: 40px;
     }
     
     #result-button:disabled,
     #result-button[disabled]{
-        font-size: 30px;
+        font-size: 40px;
     }
 
     #reset-button {
-        font-size: 30px;
+        font-size: 40px;
     }
 
     #progress-label {
-        font-size: 25px;
+        font-size: 35px;
     }
 
     #progress {
-        height: 1.5em;
-        width: 14em;
+        height: 2.5em;
+        width: 20em;
     }
 
     #questionnaire-heading { 
