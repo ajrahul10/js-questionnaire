@@ -98,7 +98,7 @@ progress {color: #d21242;}
   }
 
   tbody {
-    border: 2px solid #003366;
+    border: 1px solid #003366;
   }
 
   table td {
@@ -345,7 +345,7 @@ progress {color: #d21242;}
     }
 
     #questionnaire-container {
-        height: 8800px;
+        height: 9000px;
     }
 
     #result-heading {
