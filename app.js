@@ -18,7 +18,7 @@ function calResult() {
 
     // Display the score after user clicks submit and unhiding the section
     document.getElementById('result-div').style.display = 'block';
-    document.getElementById('result-heading').innerHTML = `YOUR SCORE: ${resultScore}`
+    document.getElementById('result-score-heading').innerHTML = `Score: ${resultScore}`
 
     // contional score for cuusomised result section
     if (resultScore <= 16) {  // if score is less the 16 -> SUCCESS
@@ -32,10 +32,19 @@ function calResult() {
         document.getElementById('result-div').classList.add('result-green-color', 'result-green-border');
 
         document.getElementById('result-heading').classList.add('result-green-color');
+        document.getElementById('result-score-heading').classList.add('result-green-color');
 
         document.getElementById('result-div').classList.remove('result-orange-color', 'result-orange-border', 'result-red-color', 'result-red-border');
 
         document.getElementById('result-heading').classList.remove('result-orange-color', 'result-red-color');
+
+        document.getElementById('result-score-heading').classList.remove('result-orange-color', 'result-red-color');
+
+        document.getElementById('result-heading').innerHTML = 'Ready to go!';
+
+        document.getElementsByClassName('success-result-content')[0].style.display = 'block'
+        document.getElementsByClassName('warning-result-content')[0].style.display = 'none'
+        document.getElementsByClassName('alert-result-content')[0].style.display = 'none'
 
     } else if (resultScore <= 32) {  // if score is between the 16 and 32 -> WARNING
 
@@ -48,10 +57,18 @@ function calResult() {
         document.getElementById('result-div').classList.add('result-orange-color', 'result-orange-border');
 
         document.getElementById('result-heading').classList.add('result-orange-color');
+        document.getElementById('result-score-heading').classList.add('result-orange-color');
 
         document.getElementById('result-div').classList.remove('result-green-color', 'result-green-border', 'result-red-color', 'result-red-border');
 
         document.getElementById('result-heading').classList.remove('result-green-color', 'result-red-color');
+        document.getElementById('result-score-heading').classList.remove('result-green-color', 'result-red-color');
+
+        document.getElementById('result-heading').innerHTML = 'Have some work to do!';
+
+        document.getElementsByClassName('success-result-content')[0].style.display = 'none'
+        document.getElementsByClassName('warning-result-content')[0].style.display = 'block'
+        document.getElementsByClassName('alert-result-content')[0].style.display = 'none'
 
     } else {  // if score is greater the 32 -> ALERT
 
@@ -64,11 +81,18 @@ function calResult() {
         document.getElementById('result-div').classList.add('result-red-color', 'result-red-border');
 
         document.getElementById('result-heading').classList.add('result-red-color');
+        document.getElementById('result-score-heading').classList.add('result-red-color');
 
         document.getElementById('result-div').classList.remove('result-orange-color', 'result-orange-border', 'result-green-color', 'result-green-border');
 
         document.getElementById('result-heading').classList.remove('result-orange-color', 'result-green-color');
+        document.getElementById('result-score-heading').classList.remove('result-orange-color', 'result-green-color');
 
+        document.getElementById('result-heading').innerHTML = 'Cannot go-live!';
+
+        document.getElementsByClassName('success-result-content')[0].style.display = 'none'
+        document.getElementsByClassName('warning-result-content')[0].style.display = 'none'
+        document.getElementsByClassName('alert-result-content')[0].style.display = 'block'
     }
 
 }

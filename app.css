@@ -1,14 +1,19 @@
+html {
+    background-image: url("pattern\ white\ bg.svg");
+    background-repeat: repeat-x repeat-y;
+    background-size: 800px 800px;
+}
+
 body {
     font-family: Helvetica, Verdana, "Open Sans", sans-serif;
     line-height: 1.25;
     font-size: 0.85em;
-    background-color: rgba(176, 225, 240, 0.577);
     height: 2000px;
   }
 
   #questionnaire-heading {
       text-align: center;
-      color: teal;
+      color: #003366;
       margin: 50px auto;
       width: 1200px;
   }
@@ -16,9 +21,18 @@ body {
   #progress-bar-div {
       position: fixed;
   }
+  
+  /* background: */
+progress::-webkit-progress-bar {background-color: rgb(240, 240, 240); width: 100%;}
+progress {background-color: rgb(240, 240, 240);}
+
+/* value: */
+progress::-webkit-progress-value {background-color: #d21242 !important;}
+progress::-moz-progress-bar {background-color: #d21242 !important;}
+progress {color: #d21242;}
 
   #questionnaire-container {
-    border: 1px solid black;
+    border: 2px solid #003366;
     padding: 20px;
     width: 1200px;
     margin: 80px auto;
@@ -47,7 +61,7 @@ body {
 
   .rating-scale-header {
     height: 30px;
-    background-color: #045979;
+    background-color: #003366;
     color: white;
     font-size: 1.3em;
     letter-spacing: 0.25em;
@@ -55,7 +69,7 @@ body {
   .questions-header {
     height: 30px;
     color: white;
-    background-color: #045979;
+    background-color: #003366;
     letter-spacing: 0.25em;
     font-size: 1.25em;
   }
@@ -84,7 +98,7 @@ body {
   }
 
   tbody {
-    border: 2px solid #045979;
+    border: 2px solid #003366;
   }
 
   table td {
@@ -92,7 +106,7 @@ body {
   }
 
   tbody tr {
-    border: 1px solid #035a79;
+    border: 1px solid #003366;
   }
 
   .container {
@@ -169,8 +183,8 @@ body {
   }
 
   #result-button, #reset-button {
-    border: 1px solid #133557;
-    background-color: #167696;
+    border: 1px solid #003366;
+    background-color: #003366;
     color: #ffffff;
     padding: 12px 15px;
     font-size: 16px;
@@ -178,8 +192,8 @@ body {
   }
   
   #result-button:hover, #reset-button:hover {
-    border: 1px solid #0e5a74;
-    background-color: #2996ac;
+    border: 1px solid #0661bb;
+    background-color: #0661bb;
     color: #ffffff;
     padding: 12px 15px;
     font-size: 16px;
@@ -212,20 +226,24 @@ body {
 
   #progress-label {
     font-size: 15px;
-    color: #11566d;
+    color: #003366;
   }
 
   #result-div {
       width: 1000px;
       text-align: center;
-      border: 2px solid teal;
+      border: 2px solid #003366;
       margin: auto;
       margin-top: 40px;
       display: none;
   }
 
   #result-heading {
-      color: teal;
+      color: #003366;
+  }
+
+  #result-score-heading {
+      color: #003366;
   }
 
   .result-content {
@@ -260,8 +278,17 @@ body {
   .result-red-border {
     border: 2px solid red !important;
   }
+
+  .success-result-content, .warning-result-section, .alert-result-section {
+      display: none;
+  }
   
   @media screen and (max-width: 800px) {
+
+    html {
+        zoom: 28%;
+    }
+
     table {
       border: 0;
     }
@@ -312,7 +339,7 @@ body {
     }
 
     .checkmark {
-        top: -6px;
+        top: -7px;
         left: 90%;
     }
 
@@ -322,6 +349,10 @@ body {
 
     #result-heading {
         font-size: 4.0em;
+    }
+
+    #result-score-heading {
+        font-size: 3.0em;
     }
 
     .result-content {
