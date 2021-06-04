@@ -98,10 +98,6 @@ progress {color: #d21242;}
     text-transform: uppercase;
   }
 
-  tbody {
-    /* border: 1px solid #003366; */
-  }
-
   table td {
       padding: 1.5em 1em;
   }
