@@ -332,6 +332,7 @@ progress {color: #d21242;}
       float: left;
       font-weight: bold;
       text-transform: uppercase;
+      padding: 0px 16px 5px 0px;
     }
     
     table td:last-child {
