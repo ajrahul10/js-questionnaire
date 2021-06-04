@@ -72,6 +72,7 @@ progress {color: #d21242;}
     background-color: #003366;
     letter-spacing: 0.25em;
     font-size: 1.25em;
+    position: relative;
   }
   
   table caption {
@@ -98,7 +99,7 @@ progress {color: #d21242;}
   }
 
   tbody {
-    border: 1px solid #003366;
+    /* border: 1px solid #003366; */
   }
 
   table td {
