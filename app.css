@@ -8,7 +8,6 @@ body {
     font-family: Helvetica, Verdana, "Open Sans", sans-serif;
     line-height: 1.25;
     font-size: 0.85em;
-    height: 2000px;
   }
 
   #questionnaire-heading {
@@ -37,7 +36,6 @@ progress {color: #d21242;}
     width: 1200px;
     margin: 80px auto;
     background-color: white;
-    height: 1600px;
   }
   
   table {
@@ -213,7 +211,7 @@ progress {color: #d21242;}
 
   #score-div {
     text-align: center;
-    padding: 20px;
+    padding: 40px;
   }
 
   #progress-div {
@@ -232,6 +230,7 @@ progress {color: #d21242;}
       border: 2px solid #003366;
       margin: auto;
       margin-top: 40px;
+      margin-bottom: 40px;
       display: none;
   }
 
@@ -339,10 +338,6 @@ progress {color: #d21242;}
     .checkmark {
         top: -7px;
         left: 90%;
-    }
-
-    #questionnaire-container {
-        height: 9000px;
     }
 
     #result-heading {
