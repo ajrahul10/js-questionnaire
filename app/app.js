@@ -37,7 +37,6 @@ const processData = (allText) => {
         }
     }
     questions = lines;
-    console.log(questions)
 }
 
 // render the questions onto the table using js
@@ -45,7 +44,8 @@ const renderData = () => {
     questions.forEach((question, idx) => {
         $('#tbody').append(`
             <tr>
-                <td data-label="QUESTION #1">${question.question}</td>
+                <td class="question-number-label">${idx + 1}</td>
+                <td data-label="QUESTION #1" colspan="3">${question.question}</td>
                 <td data-label="AGREE">
                     <label class='container'>
                         <input type="radio" name="ques${idx}" value="1" class="option-green">
@@ -66,16 +66,16 @@ const renderData = () => {
 // Add pagination to the table
 const paginateTable = () => {
 
-    $('#data').after('<div id="nav"></div>');
+    $('#questionnaire-table').after('<div id="nav">Page: </div>');
     var rowsShown = totalQuestions / paginationNumOfViews;
-    var rowsTotal = $('#data tbody tr').length;
+    var rowsTotal = $('#questionnaire-table tbody tr').length;
     var numPages = rowsTotal/rowsShown;
     for(i = 0;i < numPages;i++) {
         var pageNum = i + 1;
         $('#nav').append('<a href="#/" rel="'+i+'">'+pageNum+'</a> ');
     }
-    $('#data tbody tr').hide();
-    $('#data tbody tr').slice(0, rowsShown).show();
+    $('#questionnaire-table tbody tr').hide();
+    $('#questionnaire-table tbody tr').slice(0, rowsShown).show();
     $('#nav a:first').addClass('active');
     $('#nav a').bind('click', function(){
         $('#nav a').removeClass('active');
@@ -83,7 +83,7 @@ const paginateTable = () => {
         var currPage = $(this).attr('rel');
         var startItem = currPage * rowsShown;
         var endItem = startItem + rowsShown;
-        $('#data tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
+        $('#questionnaire-table tbody tr').css('opacity','0.0').hide().slice(startItem, endItem).
         css('display','table-row').animate({opacity:1}, 300);
     });
 }
@@ -107,8 +107,37 @@ function onChangeRadioButton(event) {
         document.getElementById("result-button").disabled = false;
     }
     document.getElementById('result-button').style.display = 'inline';
+}
 
-    // calResult()
+const getScoreCategory = (key, score) => {
+    if(key === 'activist') {
+        if(score > 12) return 'Very High'
+        if(score > 10) return 'Strong'
+        if(score > 6) return 'Moderate'
+        if(score > 3) return 'Low'
+        return 'Very Low'
+    }
+    if(key === 'reflector') {
+        if(score > 17) return 'Very High'
+        if(score > 14) return 'Strong'
+        if(score > 11) return 'Moderate'
+        if(score > 8) return 'Low'
+        return 'Very Low'
+    }
+    if(key === 'theorist') {
+        if(score > 15) return 'Very High'
+        if(score > 13) return 'Strong'
+        if(score > 10) return 'Moderate'
+        if(score > 7) return 'Low'
+        return 'Very Low'
+    }
+    if(key === 'pragmatist') {
+        if(score > 16) return 'Very High'
+        if(score > 14) return 'Strong'
+        if(score > 11) return 'Moderate'
+        if(score > 7) return 'Low'
+        return 'Very Low'
+    }
 }
 
 // this function is called when Results button is clicked
@@ -119,7 +148,7 @@ const calResult = () => {
     let optionsSelected = document.querySelectorAll('input[type="radio"]:checked')
     optionsSelected.forEach((input, idx) => {
         const questionCategory = questions[idx]['category']
-        console.log(questions)
+        // console.log(questions)
         const idxQuestionScore = Number(input.value)
         if(!results[questionCategory]) {
             results[questionCategory] = idxQuestionScore
@@ -127,100 +156,37 @@ const calResult = () => {
             results[questionCategory] += idxQuestionScore
         }
     })
+    
+    // Switching the button 'Calculate Score' to 'Retake'
+    document.getElementById('result-button').style.display = 'none';
+    document.getElementById('reset-button').style.display = 'inline';
+    
+    
+    // Display the score after user clicks submit and unhiding the section
+    $('#result-div').removeClass('hidden')
+    $('#show-results tbody').innerHTML = ``
 
     for(let key in results) {
-        $('#show-results').append(`
-            <div>${key}</div>
-            <div>${results[key]}</div>
+        let score = results[key];
+        let category = getScoreCategory(key, score)
+        $('#show-results tbody').append(`
+                <tr>
+                    <td class="question_category_td">${key}</td>
+                    <td class="score_td">
+                        <div class="form-group slider">
+                            <span class="slider_label">Very Low &nbsp;&nbsp;&nbsp;</span>
+                            <input id="range_slider_${key}" type="range" value="${results[key]}" step="1" min="0" max="20" disabled>
+                            <span class="slider_label">&nbsp;&nbsp;&nbsp; Very High </span>
+                        </div>
+                        <div class="category">
+                            <span class="score_category_${key} score_category">${category}</span>
+                            <span>Score: ${score}</span>
+                        </div>
+                    </div>
+                </tr>
         `)
+        document.getElementById(`range_slider_${key}`).style = 'background: linear-gradient(to right, red, yellow, green)'
     }
-
-    // // Switching the button 'Calculate Score' to 'Retake'
-    // document.getElementById('result-button').style.display = 'none';
-    // document.getElementById('reset-button').style.display = 'inline';
-
-
-    // // Display the score after user clicks submit and unhiding the section
-    // document.getElementById('result-div').style.display = 'block';
-    // document.getElementById('result-score-heading').innerHTML = `Score: ${resultScore}`
-
-    // console.log(results)
-
-    // // contional score for cuusomised result section
-    // if (resultScore <= 16) {  // if score is less the 16 -> SUCCESS
-
-    //     // display the SUCCESS animated sign and hiding others if displayed
-    //     document.getElementsByClassName('success-sign')[0].style.display = 'block';
-    //     document.getElementsByClassName('warning-sign')[0].style.display = 'none';
-    //     document.getElementsByClassName('alert-sign')[0].style.display = 'none';
-
-    //     // This section unhides the results section and add proper styles like GREEN for success
-    //     document.getElementById('result-div').classList.add('result-green-color', 'result-green-border');
-
-    //     document.getElementById('result-heading').classList.add('result-green-color');
-    //     document.getElementById('result-score-heading').classList.add('result-green-color');
-
-    //     document.getElementById('result-div').classList.remove('result-orange-color', 'result-orange-border', 'result-red-color', 'result-red-border');
-
-    //     document.getElementById('result-heading').classList.remove('result-orange-color', 'result-red-color');
-
-    //     document.getElementById('result-score-heading').classList.remove('result-orange-color', 'result-red-color');
-
-    //     document.getElementById('result-heading').innerHTML = 'Ready to go!';
-
-    //     document.getElementsByClassName('success-result-content')[0].style.display = 'block'
-    //     document.getElementsByClassName('warning-result-content')[0].style.display = 'none'
-    //     document.getElementsByClassName('alert-result-content')[0].style.display = 'none'
-
-    // } else if (resultScore <= 32) {  // if score is between the 16 and 32 -> WARNING
-
-    //     // display the WARNING animated sign and hiding others if displayed
-    //     document.getElementsByClassName('warning-sign')[0].style.display = 'block';
-    //     document.getElementsByClassName('success-sign')[0].style.display = 'none';
-    //     document.getElementsByClassName('alert-sign')[0].style.display = 'none';
-
-    //     // This section unhides the results section and add proper styles like GREEN for success
-    //     document.getElementById('result-div').classList.add('result-orange-color', 'result-orange-border');
-
-    //     document.getElementById('result-heading').classList.add('result-orange-color');
-    //     document.getElementById('result-score-heading').classList.add('result-orange-color');
-
-    //     document.getElementById('result-div').classList.remove('result-green-color', 'result-green-border', 'result-red-color', 'result-red-border');
-
-    //     document.getElementById('result-heading').classList.remove('result-green-color', 'result-red-color');
-    //     document.getElementById('result-score-heading').classList.remove('result-green-color', 'result-red-color');
-
-    //     document.getElementById('result-heading').innerHTML = 'Have some work to do!';
-
-    //     document.getElementsByClassName('success-result-content')[0].style.display = 'none'
-    //     document.getElementsByClassName('warning-result-content')[0].style.display = 'block'
-    //     document.getElementsByClassName('alert-result-content')[0].style.display = 'none'
-
-    // } else {  // if score is greater the 32 -> ALERT
-
-    //     // display the ALERT animated sign and hiding others if displayed
-    //     document.getElementsByClassName('alert-sign')[0].style.display = 'block';
-    //     document.getElementsByClassName('success-sign')[0].style.display = 'none';
-    //     document.getElementsByClassName('warning-sign')[0].style.display = 'none';
-
-    //     // This section unhides the results section and add proper styles like GREEN for success
-    //     document.getElementById('result-div').classList.add('result-red-color', 'result-red-border');
-
-    //     document.getElementById('result-heading').classList.add('result-red-color');
-    //     document.getElementById('result-score-heading').classList.add('result-red-color');
-
-    //     document.getElementById('result-div').classList.remove('result-orange-color', 'result-orange-border', 'result-green-color', 'result-green-border');
-
-    //     document.getElementById('result-heading').classList.remove('result-orange-color', 'result-green-color');
-    //     document.getElementById('result-score-heading').classList.remove('result-orange-color', 'result-green-color');
-
-    //     document.getElementById('result-heading').innerHTML = 'Cannot go-live!';
-
-    //     document.getElementsByClassName('success-result-content')[0].style.display = 'none'
-    //     document.getElementsByClassName('warning-result-content')[0].style.display = 'none'
-    //     document.getElementsByClassName('alert-result-content')[0].style.display = 'block'
-    // }
-
 }
 
 // this function is called for resetting the qesutionnaire
@@ -233,7 +199,7 @@ function resetQuestionnaire() {
     });
 
     // default value of progress is 10 on a scale from 0 to 100
-    document.getElementById('progress').value = 10;
+    document.getElementById('progress').value = 2;
 
     // changing the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'inline';
