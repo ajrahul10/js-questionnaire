@@ -15,28 +15,23 @@
     </div>
     <div id="questionnaire-container">
         <form action="submit" id="form-container">
-            <table id="data">
+            <table id="questionnaire-table">
 
                 <thead>
-
+                    
                     <tr>
-                        <th scope="col" rowspan="3"></th>
-                        <th scope="col" colspan="2" class="rating-scale-header">RATING SCALE</th>
+                        <th scope="col" rowspan="2" colspan="4"></th>
+                        <th scope="col" colspan="2" class="rating-scale-header">ANSWER</th>
                     </tr>
 
                     <!-- The radio button headings -->
                     <tr>
-                        <th scope="col">AGREE</th>
-                        <th scope="col">DISAGREE</th>
+                        <th scope="col" rowspan="2">AGREE</th>
+                        <th scope="col" rowspan="2">DISAGREE</th>
                     </tr>
                     <tr>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
-                    </tr>
-                    <tr>
-                        <th scope="col" class="questions-header">QUESTIONS</th>
-                        <th scope="col"></th>
-                        <th scope="col"></th>
+                        <th scope="col" class="questions-number">#</th>
+                        <th scope="col" class="questions-header" colspan="3">QUESTIONS</th>
                     </tr>
                 </thead>
 
@@ -49,7 +44,7 @@
             <!-- Progress bar to track the progress of the form i.e how much % completed -->
             <div id="progress-div">
                 <label id="progress-label">PROGRESS:</label>
-                <progress id="progress" max="100" value="10"></progress>
+                <progress id="progress" max="100" value="2"></progress>
             </div>
 
             <!-- This section calculates score and displays onto the screen, also contains refresh button -->
@@ -57,18 +52,23 @@
                 <input type="button" id="result-button" value="CALCULATE SCORE" onClick="calResult()" disabled>&nbsp;&nbsp;
                 <button type="button" id="reset-button" onClick="resetQuestionnaire()"><i class="fa fa-repeat"></i></i>
                     RESET</button>
-
             </div>
         </form>
 
         <!-- RESULTS SECTION after the result button is clicked -->
-        <div id="result-div">
+        <div id="result-div" class="hidden">
             <h1 id="result-heading">Results</h1>
             <!-- <h2 id="result-score-heading">SCORE: 0</h2> -->
             
-            <div id="show-results">
-                
-            </div>
+            <table id="show-results">
+                <thead>
+                    <tr id="show-results-heading" class="show-results-row show-results-column">
+                        <th>Category</th>
+                        <th>Score</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
         </div>
     </div>
 
