@@ -1,5 +1,5 @@
 html {
-    background-image: url('../assets/svg/background\ tile.svg');
+  background-image: url("../assets/svg/pattern\ white\ bg.svg");
     background-repeat: repeat-x repeat-y;
     background-size: 800px 800px;
 }
@@ -259,10 +259,30 @@ progress {color: #d21242;}
   text-decoration: underline;
 }
 
+#nextPage, #prevPage {
+  background: #003366;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  cursor: pointer;
+  border-radius: 3em;
+  font-size: 0.8em;
+  margin: 0 3px;
+}
+
+#nextPage:hover, #prevPage:hover {
+  background-color: #070748;
+}
+
+#nextPage:disabled, #prevPage:disabled {
+  background-color: #6e92b7;
+}
+
 #show-results {
   font-size: 1.2em;
   margin: auto;
   padding-bottom: 40px;
+  border-collapse: collapse;
 }
 
 #show-results thead {
@@ -278,6 +298,18 @@ progress {color: #d21242;}
 #show-results tbody tr {    
   height: 150px;
 }
+  
+#show-results tbody tr:nth-child(odd) {
+  height: 10px;
+}
+  
+.question_category_td {
+  padding-top: 80px;
+}
+  
+.slider, .category, .question_category_character {
+  padding-bottom: 40px !important;
+}
 
 .question_category_td {
   text-transform: uppercase;
@@ -285,6 +317,10 @@ progress {color: #d21242;}
   font-weight: bold;
   font-style: italic;
   width: 200px;
+}
+
+.question_category_character {
+ 
 }
 
 .score_td {    
@@ -355,8 +391,9 @@ progress {color: #d21242;}
   height: 20px;
   border: 0;
   border-radius: 50%;
-  background: blue;
-  border: #f9ca24 5px solid; cursor: pointer;
+  background: brown;
+  border: #f9ca24 5px solid; 
+  cursor: pointer;
   -webkit-transition: background .15s ease-in-out;
   transition: background .15s ease-in-out;
 }
@@ -370,7 +407,6 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 }
 
 #result-heading {
-    color: green;
     padding-top: 20px;
     padding-bottom: 40px;
 }
@@ -472,6 +508,11 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     border-bottom: 0;
   }
 
+  #nextPage, #prevPage {
+    padding: 13px 24px;
+    margin: 0 6px;
+  }
+
   .question-number-label {
     display: none !important;
   }
@@ -558,6 +599,10 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 
   .question_category_td {
     padding-right: 95px;
+  }
+
+  .question_category_character > img {
+    height: 180px;
   }
   
 }

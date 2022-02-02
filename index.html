@@ -11,7 +11,7 @@
 
 <body>
     <div id="questionnaire-heading">
-        <h1>QUESTIONNAIRE</h1>
+        <h1>Presentation Skills Questionnaire</h1>
     </div>
     <div id="questionnaire-container">
         <form action="submit" id="form-container">
@@ -49,7 +49,7 @@
 
             <!-- This section calculates score and displays onto the screen, also contains refresh button -->
             <div id="score-div">
-                <input type="button" id="result-button" value="CALCULATE SCORE" onClick="calResult()" disabled>&nbsp;&nbsp;
+                <input type="button" id="result-button" value="CALCULATE SCORE" onClick="calResult()">&nbsp;&nbsp;
                 <button type="button" id="reset-button" onClick="resetQuestionnaire()"><i class="fa fa-repeat"></i></i>
                     RESET</button>
             </div>
@@ -57,7 +57,7 @@
 
         <!-- RESULTS SECTION after the result button is clicked -->
         <div id="result-div" class="hidden">
-            <h1 id="result-heading">Results</h1>
+            <h1 id="result-heading">Your Result</h1>
             <!-- <h2 id="result-score-heading">SCORE: 0</h2> -->
             
             <table id="show-results">
