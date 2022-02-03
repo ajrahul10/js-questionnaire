@@ -203,7 +203,7 @@ progress {color: #d21242;}
     background: white;
 }
 
-#result-button, #reset-button {
+#result-button, #reset-button, #nextPage {
   border: 1px solid #003366;
   background-color: #003366;
   color: #ffffff;
@@ -237,7 +237,7 @@ progress {color: #d21242;}
 #score-div {
   display: flex;
   flex-direction: row-reverse;
-  justify-content: space-around;
+  justify-content: space-between;
   text-align: center;
   padding: 40px;
 }
@@ -277,7 +277,7 @@ progress {color: #d21242;}
   text-decoration: underline;
 }
 
-#nextPage, #prevPage {
+#prevPage {
   background: #003366;
   color: white;
   border: none;
@@ -561,11 +561,16 @@ input::-moz-focus-inner, input::-moz-focus-outer {
       font-size: 2.5em;
   }
 
-  #result-button {
+  #result-button, #nextPage {
     width: fit-content;
     margin: 60px auto 100px auto !important;
     font-size: 40px;
     padding: 30px 60px;
+  }
+
+  #nextPage > svg {
+    width: 32px;
+    height: 32px;
   }
   
   #result-button:disabled,

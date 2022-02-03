@@ -82,8 +82,12 @@ const paginateNextQuestions = () => {
     }
     if((Number(nextPage) + 1) === totalTablePages) {
         $('#nextPage').attr("disabled", true);
+        $('#nextPage').addClass('hidden')
+        $('#result-button').removeClass('hidden')
     } else {
         $('#nextPage').removeAttr("disabled");
+        $('#nextPage').removeClass('hidden')
+        $('#result-button').addClass('hidden')
     }
     $('#prevPage').removeAttr("disabled");
 }
@@ -106,6 +110,8 @@ const paginatePrevQuestions = () => {
         $('#prevPage').removeAttr("disabled");
     }
     $('#nextPage').removeAttr("disabled");
+    $('#nextPage').removeClass("hidden");
+    $('#result-button').addClass('hidden')
 }
 
 // Add pagination to the table
@@ -115,12 +121,12 @@ const paginateTable = () => {
     var rowsShown = totalQuestions / totalTablePages;
     var rowsTotal = $('#questionnaire-table tbody tr').length;
     var numPages = rowsTotal/rowsShown;
-    $('#nav').append('<button id="prevPage" type="button" onclick="paginatePrevQuestions()" disabled>Previous</button>')
+    // $('#nav').append('<button id="prevPage" type="button" onclick="paginatePrevQuestions()" disabled>Previous</button>')
     for(i = 0;i < numPages;i++) {
         var pageNum = i + 1;
         $('#nav').append('<a href="#/" rel="'+i+'">'+pageNum+'</a> ');
     }
-    $('#nav').append('<button id="nextPage" type="button" onclick="paginateNextQuestions()">Next</button>')
+    // $('#nav').append('<button id="nextPage" type="button" onclick="paginateNextQuestions()">Next</button>')
     $('#questionnaire-table tbody tr').hide();
     $('#questionnaire-table tbody tr').slice(0, rowsShown).show();
     $('#nav a:first').addClass('active');
@@ -141,8 +147,12 @@ const paginateTable = () => {
         }
         if(currPageNum === totalTablePages) {
             $('#nextPage').attr("disabled", true);
+            $('#nextPage').addClass('hidden')
+            $('#result-button').removeClass('hidden')
         } else {
             $('#nextPage').removeAttr("disabled");
+            $('#nextPage').removeClass("hidden");
+            $('#result-button').addClass('hidden')
         }
     });
 }
