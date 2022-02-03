@@ -112,7 +112,7 @@ progress {color: #d21242;}
 
 #questionnaire-table th,
 #questionnaire-table td {
-  padding: 0.425em 0em;
+  padding: 0.425em 1em;
   text-align: center;
 }
 

@@ -1,6 +1,6 @@
 // number of questions
-let totalQuestions = 80
-let totalTablePages = 10
+let totalQuestions = 50
+let totalTablePages = 7
 let currPageNum = 1
 let questions = []
 let results = {}
@@ -51,15 +51,33 @@ const renderData = () => {
             <tr>
                 <td class="question-number-label">${idx + 1}</td>
                 <td class="questions" data-label="QUESTION #${idx + 1}" colspan="3">${question.question}</td>
-                <td data-label="AGREE">
+                <td data-label="VERY SELDOM OR NOT TRUE OF ME">
                     <label class='container'>
-                        <input type="radio" name="ques${idx}" value="1" class="option-green">
+                        <input type="radio" name="ques${idx}" value="1" class="option-orange">
                         <span class='checkmark'></span>
                     </label>
                 </td>
-                <td data-label="DISAGREE">
+                <td data-label="SELDOM TRUE OF ME">
                     <label class='container'>
-                        <input type="radio" name="ques${idx}" value="0" class="option-red">
+                        <input type="radio" name="ques${idx}" value="2" class="option-orange">
+                        <span class='checkmark'></span>
+                    </label>
+                </td>
+                <td data-label="SOMETIMES TRUE OF ME">
+                    <label class='container'>
+                        <input type="radio" name="ques${idx}" value="3" class="option-orange">
+                        <span class='checkmark'></span>
+                    </label>
+                </td>
+                <td data-label="OFTEN TRUE OF ME">
+                    <label class='container'>
+                        <input type="radio" name="ques${idx}" value="4" class="option-orange">
+                        <span class='checkmark'></span>
+                    </label>
+                </td>
+                <td data-label="VERY OFTEN TRUE OF ME OR TRUE OF ME">
+                    <label class='container'>
+                        <input type="radio" name="ques${idx}" value="5" class="option-orange">
                         <span class='checkmark'></span>
                     </label>
                 </td>
