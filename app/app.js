@@ -1,6 +1,6 @@
 // number of questions
 let totalQuestions = 80
-let totalTablePages = 4
+let totalTablePages = 10
 let currPageNum = 1
 let questions = []
 let results = {}
@@ -50,7 +50,7 @@ const renderData = () => {
         $('#tbody').append(`
             <tr>
                 <td class="question-number-label">${idx + 1}</td>
-                <td data-label="QUESTION #${idx + 1}" colspan="3">${question.question}</td>
+                <td class="questions" data-label="QUESTION #${idx + 1}" colspan="3">${question.question}</td>
                 <td data-label="AGREE">
                     <label class='container'>
                         <input type="radio" name="ques${idx}" value="1" class="option-green">
@@ -111,7 +111,7 @@ const paginatePrevQuestions = () => {
 // Add pagination to the table
 const paginateTable = () => {
 
-    $('#questionnaire-table').after('<div id="nav">Page: </div>');
+    $('#score-div').append('<div id="nav">Page: </div>');
     var rowsShown = totalQuestions / totalTablePages;
     var rowsTotal = $('#questionnaire-table tbody tr').length;
     var numPages = rowsTotal/rowsShown;
@@ -201,13 +201,13 @@ const getScoreCategory = (key, score) => {
 
 const getCategoryCharacter = category => {
     if(category === CATEGORY_ACTIVIST)
-        return `<img height="120" src="../assets/svg/active.svg" />`
+        return `<img height="120" src="./assets/svg/active.svg" />`
     if(category === CATEGORY_PRAGMATIST)
-        return `<img height="100" src="../assets/svg/prag.svg" />`
+        return `<img height="100" src="./assets/svg/prag.svg" />`
     if(category === CATEGORY_REFLECTOR)
-        return `<img height="130" src="../assets/svg/reflect.svg" />`
+        return `<img height="130" src="./assets/svg/reflect.svg" />`
     if(category === CATEGORY_THEORIST)
-        return `<img height="120" src="../assets/svg/theory.svg" />`
+        return `<img height="120" src="./assets/svg/theory.svg" />`
 }
 
 const setRangeSliderBackground = category => {
@@ -248,6 +248,7 @@ const calResult = () => {
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
     document.getElementById('reset-button').style.display = 'inline';
+    $('#questionnaire-container').css('padding' , '0px')
     
     
     // Display the score after user clicks submit and unhiding the section
