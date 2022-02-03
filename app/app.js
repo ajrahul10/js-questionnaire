@@ -174,8 +174,8 @@ function onChangeRadioButton(event) {
     // enable submit button if all quesions are answered or radio buttons are checked
     if (questionsAnswered == totalQuestions) {
         document.getElementById("result-button").disabled = false;
+        document.getElementById('result-button').style.display = 'inline';
     }
-    document.getElementById('result-button').style.display = 'inline';
 }
 
 const getScoreCategory = (key, score) => {
