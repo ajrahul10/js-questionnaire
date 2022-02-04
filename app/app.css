@@ -60,6 +60,7 @@ progress {color: #d21242;}
 
 #questionnaire-table tr th:nth-child(1){
   max-width: 150px;
+  padding: 0 0.5em;
 }
 
 #questionnaire-table tbody tr td:nth-child(1) {

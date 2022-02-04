@@ -4,10 +4,11 @@ let totalTablePages = 7
 let currPageNum = 1
 let questions = []
 let results = {}
-const CATEGORY_ACTIVIST = 'activist'
-const CATEGORY_THEORIST = 'theorist'
-const CATEGORY_REFLECTOR = 'reflector'
-const CATEGORY_PRAGMATIST = 'pragmatist'
+const CATEGORY_DECISION = 'decision'
+const CATEGORY_MANAGING = 'managing'
+const CATEGORY_PERCEIVING = 'perceiving'
+const CATEGORY_INFLUENCING = 'influencing'
+const CATEGORY_ACHIEVING = 'achieving'
 
 // read the questions csv data
 $(document).ready(function() {
@@ -192,8 +193,8 @@ function onChangeRadioButton(event) {
     // enable submit button if all quesions are answered or radio buttons are checked
     if (questionsAnswered == totalQuestions) {
         document.getElementById("result-button").disabled = false;
+        document.getElementById('result-button').style.display = 'inline';
     }
-    document.getElementById('result-button').style.display = 'inline';
 }
 
 const getScoreCategory = (key, score) => {
@@ -238,22 +239,25 @@ const getCategoryCharacter = category => {
         return `<img height="120" src="./assets/svg/theory.svg" />`
 }
 
-const setRangeSliderBackground = category => {
-    if(category === CATEGORY_ACTIVIST)
-        return document.getElementById(`range_slider_${category}`).style = 
-            `background: linear-gradient(to right, white, #20315F)`
-
-    if(category === CATEGORY_PRAGMATIST)
-    return document.getElementById(`range_slider_${category}`).style = 
-        `background: linear-gradient(to right, white, #D11138)`
-
-    if(category === CATEGORY_REFLECTOR)
-    return document.getElementById(`range_slider_${category}`).style = 
-        `background: linear-gradient(to right, white, #939598)`
-
-    if(category === CATEGORY_THEORIST)
-    return document.getElementById(`range_slider_${category}`).style = 
-        `background: linear-gradient(to right, white, #000)`
+const calStandardisedScore = results => {
+    for(category in results) {
+        if(category === CATEGORY_PERCEIVING)
+        results[category] = (results[category] - 43.14) / 7.28 + 5.00
+        
+        else if(category === CATEGORY_MANAGING)
+        results[category] = (results[category] - 33.9) / 6.13 + 5.00
+        
+        else if(category === CATEGORY_DECISION)
+        results[category] = (results[category] - 34.14) / 3.83 + 5.00
+        
+        else if(category === CATEGORY_ACHIEVING)
+        results[category] = (results[category] - 28.46) / 5.68 + 5.00
+        
+        else if(category === CATEGORY_INFLUENCING)
+        results[category] = (results[category] - 32.01) / 7.4 + 5.00
+        
+        console.log(category, results[category])
+    }
 }
 
 // this function is called when Results button is clicked
@@ -264,14 +268,20 @@ const calResult = () => {
     let optionsSelected = document.querySelectorAll('input[type="radio"]:checked')
     optionsSelected.forEach((input, idx) => {
         const questionCategory = questions[idx]['category']
+        const isResponseReversed = questions[idx]['reversed']
         // console.log(questions)
         const idxQuestionScore = Number(input.value)
+        if(isResponseReversed === 'yes') {
+            idxQuestionScore = 6 - idxQuestionScore
+        }
         if(!results[questionCategory]) {
             results[questionCategory] = idxQuestionScore
         } else {
             results[questionCategory] += idxQuestionScore
         }
     })
+
+    calStandardisedScore(results)
     
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
