@@ -278,6 +278,10 @@ progress {color: #d21242;}
   text-decoration: underline;
 }
 
+#nextPage {
+  width: 250px;
+}
+
 #prevPage {
   background: #003366;
   color: white;
@@ -572,6 +576,10 @@ input::-moz-focus-inner, input::-moz-focus-outer {
   #nextPage > svg {
     width: 32px;
     height: 32px;
+  }
+
+  #nextPage {
+    width: 450px;
   }
   
   #result-button:disabled,

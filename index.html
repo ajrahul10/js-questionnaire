@@ -7,6 +7,10 @@
     <title>JS Questionnaire</title>
     <link rel="stylesheet" href="./app/app.css" />
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="https://code.highcharts.com/modules/export-data.js"></script>
+    <script src="https://code.highcharts.com/modules/accessibility.js"></script>
 </head>
 
 <body>
@@ -68,13 +72,16 @@
                 <h1 id="result-heading">YOUR RESULT</h1>
                 <!-- <h2 id="result-score-heading">SCORE: 0</h2> -->
                 
-                <table id="show-results">
-                    <tbody></tbody>
-                </table>
+                <div id="show-results">
+                    <figure class="highcharts-figure">
+                        <div id="container"></div>
+                    </figure>
+                </div>
             </div>
         </div>
     </main>
 
+    <script src="./app/components/graph.js"></script>
     <script src="./app/app.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>

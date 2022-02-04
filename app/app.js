@@ -240,24 +240,24 @@ const getCategoryCharacter = category => {
 }
 
 const calStandardisedScore = results => {
+    const standardResults = []
     for(category in results) {
         if(category === CATEGORY_PERCEIVING)
-        results[category] = (results[category] - 43.14) / 7.28 + 5.00
+        standardResults[category] = (results[category] - 43.14) / 7.28 + 5.00
         
         else if(category === CATEGORY_MANAGING)
-        results[category] = (results[category] - 33.9) / 6.13 + 5.00
+        standardResults[category] = (results[category] - 33.9) / 6.13 + 5.00
         
         else if(category === CATEGORY_DECISION)
-        results[category] = (results[category] - 34.14) / 3.83 + 5.00
+        standardResults[category] = (results[category] - 34.14) / 3.83 + 5.00
         
         else if(category === CATEGORY_ACHIEVING)
-        results[category] = (results[category] - 28.46) / 5.68 + 5.00
+        standardResults[category] = (results[category] - 28.46) / 5.68 + 5.00
         
         else if(category === CATEGORY_INFLUENCING)
-        results[category] = (results[category] - 32.01) / 7.4 + 5.00
-        
-        console.log(category, results[category])
+        standardResults[category] = (results[category] - 32.01) / 7.4 + 5.00   
     }
+    return standardResults
 }
 
 // this function is called when Results button is clicked
@@ -281,7 +281,22 @@ const calResult = () => {
         }
     })
 
-    calStandardisedScore(results)
+    let standardResults = calStandardisedScore(results)
+
+    const categories = [CATEGORY_MANAGING, CATEGORY_PERCEIVING, CATEGORY_INFLUENCING, CATEGORY_ACHIEVING, CATEGORY_DECISION]
+    const totalScore = [results[CATEGORY_MANAGING], 
+                        results[CATEGORY_PERCEIVING],
+                        results[CATEGORY_INFLUENCING],
+                        results[CATEGORY_ACHIEVING],
+                        results[CATEGORY_DECISION]
+                    ]
+    const standardScore = [standardResults[CATEGORY_MANAGING], 
+                            standardResults[CATEGORY_PERCEIVING],
+                            standardResults[CATEGORY_INFLUENCING],
+                            standardResults[CATEGORY_ACHIEVING],
+                            standardResults[CATEGORY_DECISION]
+                        ]
+    plotResultGraph(totalScore, standardScore, categories)
     
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
@@ -292,34 +307,7 @@ const calResult = () => {
     // Display the score after user clicks submit and unhiding the section
     $('#form-container').addClass('hidden')
     $('#result-div').removeClass('hidden')
-    $('#show-results tbody').innerHTML = ``
 
-    for(let key in results) {
-        let score = results[key];
-        let category = getScoreCategory(key, score)
-        $('#show-results tbody').append(`
-                <tr>
-                    <td colspan="2" class="question_category_td">${key}</td>
-                </tr>
-                <tr>
-                    <td class="question_category_character">
-                        ${getCategoryCharacter(key)}
-                    </td>
-                    <td class="score_td">
-                        <div class="form-group slider">
-                            <span class="slider_label">Very Low &nbsp;&nbsp;&nbsp;</span>
-                            <input id="range_slider_${key}" type="range" value="${results[key]}" step="1" min="0" max="20" disabled>
-                            <span class="slider_label">&nbsp;&nbsp;&nbsp; Very High </span>
-                        </div>
-                        <div class="category">
-                            <span class="score_category_${key} score_category">${category}</span>
-                            <span>Score: ${score}</span>
-                        </div>
-                    </div>
-                </tr>
-        `)
-        setRangeSliderBackground(key)
-    }
 }
 
 // this function is called for resetting the qesutionnaire
