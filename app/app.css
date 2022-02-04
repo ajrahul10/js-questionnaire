@@ -213,6 +213,10 @@ progress {color: #d21242;}
   border-radius: 64px;
 }
 
+#nextPage {
+  width: 250px;
+}
+
 #result-button:hover, #reset-button:hover {
   border: 1px solid #0661bb;
   background-color: #0661bb;
@@ -571,6 +575,10 @@ input::-moz-focus-inner, input::-moz-focus-outer {
   #nextPage > svg {
     width: 32px;
     height: 32px;
+  }
+
+  #nextPage {
+    width: 450px;
   }
   
   #result-button:disabled,
