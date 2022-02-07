@@ -4,7 +4,7 @@ let totalTablePages = 7
 let currPageNum = 1
 let questions = []
 let results = {}
-const CATEGORY_DECISION = 'decision'
+const CATEGORY_DECISION = 'decision making'
 const CATEGORY_MANAGING = 'managing'
 const CATEGORY_PERCEIVING = 'perceiving'
 const CATEGORY_INFLUENCING = 'influencing'
@@ -197,46 +197,17 @@ function onChangeRadioButton(event) {
     }
 }
 
-const getScoreCategory = (key, score) => {
-    if(key === CATEGORY_ACTIVIST) {
-        if(score > 12) return 'Very High'
-        if(score > 10) return 'Strong'
-        if(score > 6) return 'Moderate'
-        if(score > 3) return 'Low'
-        return 'Very Low'
-    }
-    if(key === CATEGORY_REFLECTOR) {
-        if(score > 17) return 'Very High'
-        if(score > 14) return 'Strong'
-        if(score > 11) return 'Moderate'
-        if(score > 8) return 'Low'
-        return 'Very Low'
-    }
-    if(key === CATEGORY_THEORIST) {
-        if(score > 15) return 'Very High'
-        if(score > 13) return 'Strong'
-        if(score > 10) return 'Moderate'
-        if(score > 7) return 'Low'
-        return 'Very Low'
-    }
-    if(key === CATEGORY_PRAGMATIST) {
-        if(score > 16) return 'Very High'
-        if(score > 14) return 'Strong'
-        if(score > 11) return 'Moderate'
-        if(score > 7) return 'Low'
-        return 'Very Low'
-    }
-}
-
 const getCategoryCharacter = category => {
-    if(category === CATEGORY_ACTIVIST)
-        return `<img height="120" src="./assets/svg/active.svg" />`
-    if(category === CATEGORY_PRAGMATIST)
-        return `<img height="100" src="./assets/svg/prag.svg" />`
-    if(category === CATEGORY_REFLECTOR)
-        return `<img height="130" src="./assets/svg/reflect.svg" />`
-    if(category === CATEGORY_THEORIST)
-        return `<img height="120" src="./assets/svg/theory.svg" />`
+    if(category === CATEGORY_MANAGING)
+        return `<img height="120" src="./assets/svg/managing.svg" />`
+    if(category === CATEGORY_PERCEIVING)
+        return `<img height="100" src="./assets/svg/perceiving.svg" />`
+    if(category === CATEGORY_INFLUENCING)
+        return `<img height="130" src="./assets/svg/influencing.svg" />`
+    if(category === CATEGORY_ACHIEVING)
+        return `<img height="120" src="./assets/svg/achieving.svg" />`
+    if(category === CATEGORY_DECISION)
+        return `<img height="120" src="./assets/svg/decisionmaking.svg" />`
 }
 
 const calStandardisedScore = results => {
@@ -308,6 +279,15 @@ const calResult = () => {
     $('#form-container').addClass('hidden')
     $('#result-div').removeClass('hidden')
 
+     let strengthCat, strengthCatScore = 0
+     for(let cat in standardResults) {
+         if(standardResults[cat] > strengthCatScore) {
+            strengthCatScore = standardResults[cat]
+            strengthCat = cat
+         }
+     }
+    $('#strength-area').text(strengthCat)
+    $('#strength-svg').append(getCategoryCharacter(strengthCat))
 }
 
 // this function is called for resetting the qesutionnaire

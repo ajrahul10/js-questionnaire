@@ -1,5 +1,5 @@
 num;question;category;reverse
-1;When faced with a difficult situation, I like to collect all the information about it that I can.;decision;no
+1;When faced with a difficult situation, I like to collect all the information about it that I can.;decision making;no
 2;It is a problem controlling my anger.;managing;yes
 3;I am attuned to other people’s reactions to me.;perceiving;no
 4;It’s hard for me to smile.;influencing;yes
@@ -8,15 +8,15 @@ num;question;category;reverse
 7;I believe in my ability to achieve what I set out to achieve.;achieving;no
 8;When upset I often lose control.;managing;yes
 9;I often feel anxious when working toward a meaningful goal.;achieving;yes
-10;My approach in overcoming difficulties is to move step by step.;decision;no
+10;My approach in overcoming difficulties is to move step by step.;decision making;no
 11;I’m in touch with my emotions.;perceiving;no
 12;In the past few years I feel I’ve accomplished little.;achieving;yes
 13;I am easily distracted by things going on around me.;achieving;yes
-14;When trying to solve a problem, I look at each possibility and then decide on the best way.;decision;no
+14;When trying to solve a problem, I look at each possibility and then decide on the best way.;decision making;no
 15;I’m impatient.;managing;yes
-16;When facing a problem, the first thing I do is stop and think.;decision;no
+16;When facing a problem, the first thing I do is stop and think.;decision making;no
 17;Even when upset, I’m aware of what’s happening to me.;perceiving;no
-18;I like to get an overview of a problem before trying to solve it.;decision;no
+18;I like to get an overview of a problem before trying to solve it.;decision making;no
 19;My impulsiveness creates problems.;achieving;yes
 20;I am assertive.;influencing;no
 21;I’m sensitive to the feelings of others.;perceiving;no
@@ -38,14 +38,14 @@ num;question;category;reverse
 37;I tend to explode with anger easily.;managing;yes
 38;I have good relations with others.;influencing;no
 39;I don’t feel good about myself.;influencing;yes
-40;In handling situations that arise, I try to think of as many approaches as I can.;decision;no
-41;I process all relevant facts when making a decision.;decision;no
-42;It’s hard for me to keep things in proper perspective.;achieving;yes
+40;In handling situations that arise, I try to think of as many approaches as I can.;decision making;no
+41;I process all relevant facts when making a decision.;decision making;no
+42;It’s hard for me to keep things in proper perspective.;decision making;yes
 43;I misperceive other people’s emotions.;perceiving;yes
-44;It’s hard for me to make decisions on my own.;decision;yes
+44;It’s hard for me to make decisions on my own.;decision making;yes
 45;I can remain composed even in the most difficult situations.;managing;no
 46;I can control the outward expression of my emotions.;managing;no
 47;It’s hard for me to understand the way I feel.;perceiving;yes
-48;I modify my emotions to enhance my decision making.;decision;no
+48;I modify my emotions to enhance my decision making.;decision making;no
 49;I’m impulsive.;achieving;yes
 50;It’s hard for me to describe my feelings.;perceiving;yes
