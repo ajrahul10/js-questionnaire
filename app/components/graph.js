@@ -45,11 +45,11 @@ const plotResultGraph = (standardScore, normalisedScore, categories) => {
             shared: true
         },
         colors: [
-        '#20315F', 
-        '#D11138', 
-        '#939598', 
-        '#ffa500', 
-        '#000', 
+        '#6d6e70', 
+        '#000000', 
+        '#d41f44', 
+        '#1b3564', 
+        '#929598', 
         ],
         plotOptions: {
         column: {

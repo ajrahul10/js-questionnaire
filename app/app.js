@@ -231,6 +231,11 @@ const calStandardisedScore = results => {
     return standardResults
 }
 
+function capitalize(str) {
+    const lower = str.toLowerCase();
+    return str.charAt(0).toUpperCase() + lower.slice(1);
+}
+
 // this function is called when Results button is clicked
 const calResult = () => {
     let resultScore = 0; // initial result score
@@ -254,7 +259,11 @@ const calResult = () => {
 
     let standardResults = calStandardisedScore(results)
 
-    const categories = [CATEGORY_MANAGING, CATEGORY_PERCEIVING, CATEGORY_INFLUENCING, CATEGORY_ACHIEVING, CATEGORY_DECISION]
+    const categories = [capitalize(CATEGORY_MANAGING), 
+        capitalize(CATEGORY_PERCEIVING), 
+        capitalize(CATEGORY_INFLUENCING), 
+        capitalize(CATEGORY_ACHIEVING), 
+        capitalize(CATEGORY_DECISION)]
     const totalScore = [results[CATEGORY_MANAGING], 
                         results[CATEGORY_PERCEIVING],
                         results[CATEGORY_INFLUENCING],
@@ -268,6 +277,7 @@ const calResult = () => {
                             standardResults[CATEGORY_DECISION]
                         ]
     plotResultGraph(totalScore, standardScore, categories)
+    $('.highcharts-credits').addClass('hidden')
     
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
@@ -280,9 +290,9 @@ const calResult = () => {
     $('#result-div').removeClass('hidden')
 
      let strengthCat, strengthCatScore = 0
-     for(let cat in standardResults) {
-         if(standardResults[cat] > strengthCatScore) {
-            strengthCatScore = standardResults[cat]
+     for(let cat in results) {
+         if(results[cat] > strengthCatScore) {
+            strengthCatScore = results[cat]
             strengthCat = cat
          }
      }
