@@ -1,14 +1,9 @@
 // number of questions
-let totalQuestions = 50
-let totalTablePages = 7
+let totalQuestions = 18
+let totalTablePages = 2
 let currPageNum = 1
 let questions = []
 let results = {}
-const CATEGORY_DECISION = 'decision making'
-const CATEGORY_MANAGING = 'managing'
-const CATEGORY_PERCEIVING = 'perceiving'
-const CATEGORY_INFLUENCING = 'influencing'
-const CATEGORY_ACHIEVING = 'achieving'
 
 // read the questions csv data
 $(document).ready(function() {
@@ -48,40 +43,39 @@ const processData = (allText) => {
 // render the questions onto the table using js
 const renderData = () => {
     questions.forEach((question, idx) => {
+        let options = ['D', 'C', 'B', 'A']
+        if(question.isLetter != "yes") {
+            options = ['1', '2', '3', '4']
+        }
         $('#tbody').append(`
             <tr>
                 <td class="question-number-label">${idx + 1}</td>
-                <td class="questions" data-label="QUESTION #${idx + 1}" colspan="3">${question.question}</td>
-                <td data-label="VERY SELDOM OR NOT TRUE OF ME">
+                <td class="questions" data-label="QUESTION #${idx + 1}" colspan="2">${question.left}</td>
+                <td data-label="Strongly Agree">
                     <label class='container'>
-                        <input type="radio" name="ques${idx}" value="1" class="option-orange">
+                        <input type="radio" name="ques${idx}" value="${options[0]}" class="option-orange">
                         <span class='checkmark'></span>
                     </label>
                 </td>
-                <td data-label="SELDOM TRUE OF ME">
+                <td data-label="Somewhat Agree">
                     <label class='container'>
-                        <input type="radio" name="ques${idx}" value="2" class="option-orange">
+                        <input type="radio" name="ques${idx}" value="${options[1]}" class="option-orange">
                         <span class='checkmark'></span>
                     </label>
                 </td>
-                <td data-label="SOMETIMES TRUE OF ME">
+                <td data-label="Somewhat Disagree">
                     <label class='container'>
-                        <input type="radio" name="ques${idx}" value="3" class="option-orange">
+                        <input type="radio" name="ques${idx}" value="${options[2]}" class="option-orange">
                         <span class='checkmark'></span>
                     </label>
                 </td>
-                <td data-label="OFTEN TRUE OF ME">
+                <td data-label="Strongly Disagree">
                     <label class='container'>
-                        <input type="radio" name="ques${idx}" value="4" class="option-orange">
+                        <input type="radio" name="ques${idx}" value="${options[3]}" class="option-orange">
                         <span class='checkmark'></span>
                     </label>
                 </td>
-                <td data-label="VERY OFTEN TRUE OF ME OR TRUE OF ME">
-                    <label class='container'>
-                        <input type="radio" name="ques${idx}" value="5" class="option-orange">
-                        <span class='checkmark'></span>
-                    </label>
-                </td>
+                <td class="questions" data-label="QUESTION #${idx + 1}" colspan="3">${question.right}</td>
             </tr>
         `)
     })
@@ -197,97 +191,79 @@ function onChangeRadioButton(event) {
     }
 }
 
-const getCategoryCharacter = category => {
-    if(category === CATEGORY_MANAGING)
-        return `<img height="120" src="./assets/svg/managing.svg" />`
-    if(category === CATEGORY_PERCEIVING)
-        return `<img height="100" src="./assets/svg/perceiving.svg" />`
-    if(category === CATEGORY_INFLUENCING)
-        return `<img height="130" src="./assets/svg/influencing.svg" />`
-    if(category === CATEGORY_ACHIEVING)
-        return `<img height="120" src="./assets/svg/achieving.svg" />`
-    if(category === CATEGORY_DECISION)
-        return `<img height="120" src="./assets/svg/decisionmaking.svg" />`
-}
-
-const calStandardisedScore = results => {
-    const standardResults = []
-    for(category in results) {
-        if(category === CATEGORY_PERCEIVING)
-        standardResults[category] = (results[category] - 43.14) / 7.28 + 5.00
-        
-        else if(category === CATEGORY_MANAGING)
-        standardResults[category] = (results[category] - 33.9) / 6.13 + 5.00
-        
-        else if(category === CATEGORY_DECISION)
-        standardResults[category] = (results[category] - 34.14) / 3.83 + 5.00
-        
-        else if(category === CATEGORY_ACHIEVING)
-        standardResults[category] = (results[category] - 28.46) / 5.68 + 5.00
-        
-        else if(category === CATEGORY_INFLUENCING)
-        standardResults[category] = (results[category] - 32.01) / 7.4 + 5.00   
-    }
-    return standardResults
-}
-
 // this function is called when Results button is clicked
 const calResult = () => {
     let resultScore = 0; // initial result score
 
     // collecting all the radio buttons using JS selector and cal score
     let optionsSelected = document.querySelectorAll('input[type="radio"]:checked')
+    let score = {}
     optionsSelected.forEach((input, idx) => {
-        const questionCategory = questions[idx]['category']
-        const isResponseReversed = questions[idx]['reversed']
-        // console.log(questions)
-        const idxQuestionScore = Number(input.value)
-        if(isResponseReversed === 'yes') {
-            idxQuestionScore = 6 - idxQuestionScore
-        }
-        if(!results[questionCategory]) {
-            results[questionCategory] = idxQuestionScore
+        const val = input.value;
+        if(score[val] == undefined) {
+            score[val] = 1
         } else {
-            results[questionCategory] += idxQuestionScore
+            score[val] += 1
         }
     })
 
-    let standardResults = calStandardisedScore(results)
+    let maxScoreNum = Math.max(
+        Math.max(
+            score['1'] ? score['1'] : 0, 
+            score['2'] ? score['2'] : 0), 
+        Math.max(
+            score['3'] ? score['3'] : 0, 
+            score['4'] ? score['4'] : 0, ))
 
-    const categories = [CATEGORY_MANAGING, CATEGORY_PERCEIVING, CATEGORY_INFLUENCING, CATEGORY_ACHIEVING, CATEGORY_DECISION]
-    const totalScore = [results[CATEGORY_MANAGING], 
-                        results[CATEGORY_PERCEIVING],
-                        results[CATEGORY_INFLUENCING],
-                        results[CATEGORY_ACHIEVING],
-                        results[CATEGORY_DECISION]
-                    ]
-    const standardScore = [standardResults[CATEGORY_MANAGING], 
-                            standardResults[CATEGORY_PERCEIVING],
-                            standardResults[CATEGORY_INFLUENCING],
-                            standardResults[CATEGORY_ACHIEVING],
-                            standardResults[CATEGORY_DECISION]
-                        ]
-    plotResultGraph(totalScore, standardScore, categories)
-    
+    let maxScoreLetter = Math.max(
+        Math.max(
+            score['A'] ? score['A'] : 0, 
+            score['B'] ? score['B'] : 0 ),
+        Math.max(
+            score['C'] ? score['C'] : 0, 
+            score['D'] ? score['D'] : 0, ))
+
+    console.log(maxScoreLetter, maxScoreNum, score)
+
+    let category = []
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['2']) category.push('analyser')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['1']) category.push('analyser')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['1']) category.push('analyser')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['2']) category.push('analyser')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['1']) category.push('driver')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['2']) category.push('driver')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['1']) category.push('driver')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['2']) category.push('driver')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['3']) category.push('amiable')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['4']) category.push('amiable')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['3']) category.push('amiable')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['4']) category.push('amiable')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['3']) category.push('expressive')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['4']) category.push('expressive')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['3']) category.push('expressive')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['4']) category.push('expressive')
+
+    category.sort(function(a, b){
+        if(a < b) { return -1; }
+        if(a > b) { return 1; }
+        return 0;
+    })
+
+    $('#result-image').append(`<img src="./assets/svg/${category.toString()}.svg" />`)
+    $('#result-title').append(`You are a <br/> ${category.toString()?.replace(',', ' and ').toLocaleUpperCase()}`)
+    $('.show-results-heading').append(`${category[0].toUpperCase()}`);
+    $('.show-results-content').append(`${content[category[0]]}`);
+
+
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
     document.getElementById('reset-button').style.display = 'inline';
     $('#questionnaire-container').css('padding' , '0px')
     
-    
     // Display the score after user clicks submit and unhiding the section
     $('#form-container').addClass('hidden')
     $('#result-div').removeClass('hidden')
 
-     let strengthCat, strengthCatScore = 0
-     for(let cat in standardResults) {
-         if(standardResults[cat] > strengthCatScore) {
-            strengthCatScore = standardResults[cat]
-            strengthCat = cat
-         }
-     }
-    $('#strength-area').text(strengthCat)
-    $('#strength-svg').append(getCategoryCharacter(strengthCat))
 }
 
 // this function is called for resetting the qesutionnaire

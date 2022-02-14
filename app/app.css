@@ -45,7 +45,7 @@ progress {color: #d21242;}
   border: 2px solid #003366;
   padding: 20px;
   max-width: 1200px;
-  margin: 0px auto;
+  margin: 50px auto;
   background-color: white;
 }
 
@@ -301,13 +301,31 @@ progress {color: #d21242;}
   background-color: #6e92b7;
 }
 
+#result-image > img {
+  width: 350px;
+}
+
 #show-results {
+  display: flex;
+  flex-direction: row;
+  padding: 80px 100px;
   font-size: 1.2em;
   margin: auto;
   padding-bottom: 40px;
   border-collapse: collapse;
-  display: flex;
   justify-content: space-evenly;
+  grid-gap: 67px;
+  align-items: center;
+}
+
+#result-title {
+  line-height: 42px;
+  font-size: 20px;
+}
+
+.show-results-heading {
+  font-size: 1.2rem;
+  padding-bottom: 2rem;
 }
 
 #show-results thead {
@@ -478,6 +496,19 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     display: none;
 }
 
+
+@media screen and (max-width: 1150px) {
+
+  #questionnaire-container {
+    margin: 20px auto;    
+  }
+
+  #show-results {
+    flex-direction: column;
+  }
+  
+}
+
 @media screen and (max-width: 800px) {
 
   html {
@@ -518,7 +549,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
   }
   
   #questionnaire-table tbody tr td:nth-child(2)::before {
-    padding-bottom: 8rem;
+    padding-bottom: 1rem;
   }
   
   #questionnaire-table tr {
@@ -639,9 +670,24 @@ input::-moz-focus-inner, input::-moz-focus-outer {
   }
 
   #show-results {
-    font-size: 2em;
+    font-size: 3em;
     flex-direction: column;
+    padding: 30px 20px;
     /* width: 100% !important; */
+  }
+
+  #result-title {
+    line-height: 76px;
+    font-size: 42px;
+  }
+
+  #result-image > img {
+    width: 650px;
+  }
+  
+  .show-results-heading {
+    font-size: 3.2rem;
+    padding-bottom: 2rem;
   }
 
   .score_td {

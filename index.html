@@ -16,7 +16,7 @@
 <body>
     <main>
         <div id="questionnaire-heading">
-            <h1>Emotional Intelligence Skills Assessment</h1>
+            <h1>Communication Skills Assessment</h1>
         </div>
         <div id="questionnaire-container">
             <form action="submit" id="form-container">
@@ -30,21 +30,22 @@
                 <table id="questionnaire-table">
                     <thead>
                         <tr>
-                            <th scope="col" rowspan="2" colspan="4"></th>
-                            <th scope="col" colspan="5" class="rating-scale-header">ANSWER</th>
+                            <th scope="col" rowspan="2" colspan="3"></th>
+                            <th scope="col" colspan="4" class="rating-scale-header">ANSWER</th>
+                            <th scope="col" rowspan="2" colspan="2"></th>
                         </tr>
 
                         <!-- The radio button headings -->
                         <tr>
-                            <th scope="col" rowspan="2">Very seldom or not true of me</th>
-                            <th scope="col" rowspan="2">Seldom true of me</th>
-                            <th scope="col" rowspan="2">Sometimes true of me</th>
-                            <th scope="col" rowspan="2">Often true of me</th>
-                            <th scope="col" rowspan="2">Very often true of me or true of me</th>
+                            <th scope="col" rowspan="2">Strongly Agree</th>
+                            <th scope="col" rowspan="2">Somewhat Agree</th>
+                            <th scope="col" rowspan="2">Somewhat Disagree</th>
+                            <th scope="col" rowspan="2">Strongly Disagree</th>
                         </tr>
                         <tr>
                             <th scope="col" class="questions-number">#</th>
-                            <th scope="col" class="questions-header" colspan="3">QUESTIONS</th>
+                            <th scope="col" class="questions-header" colspan="2"></th>
+                            <th scope="col" class="questions-header" colspan="2"></th>
                         </tr>
                     </thead>
 
@@ -70,16 +71,17 @@
             <!-- RESULTS SECTION after the result button is clicked -->
             <div id="result-div" class="hidden">
                 <h1 id="result-heading">YOUR RESULT</h1>
-                <!-- <h2 id="result-score-heading">SCORE: 0</h2> -->
                 
                 <div id="show-results">
-                    <figure class="highcharts-figure">
-                        <div id="container"></div>
-                    </figure>
-                    <div id="strength-container">
-                        <h2>Your strength area is</h2>
-                        <h3 id="strength-area"></h3>
-                        <div id="strength-svg"></div>
+                    <div id="result-title"></div>
+                    <div id="result-image">
+                        <!-- Results image go here -->
+                        <!-- <img src="./assets/svg/amiable.svg" />  -->
+                    </div>
+                    <div id="expressives">
+                        <div class="show-results-heading" ></div>
+                        <div class="show-results-content">
+                        </div>
                     </div>
                 </div>
 
@@ -87,8 +89,8 @@
         </div>
     </main>
 
-    <script src="./app/components/graph.js"></script>
     <script src="./app/app.js"></script>
+    <script src="./app/content.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </body>
 
