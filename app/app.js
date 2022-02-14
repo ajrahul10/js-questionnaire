@@ -226,22 +226,22 @@ const calResult = () => {
     console.log(maxScoreLetter, maxScoreNum, score)
 
     let category = []
-    if(maxScoreLetter === score['D'] && maxScoreNum === score['2']) category.push('analyser')
-    if(maxScoreLetter === score['D'] && maxScoreNum === score['1']) category.push('analyser')
-    if(maxScoreLetter === score['C'] && maxScoreNum === score['1']) category.push('analyser')
-    if(maxScoreLetter === score['C'] && maxScoreNum === score['2']) category.push('analyser')
-    if(maxScoreLetter === score['B'] && maxScoreNum === score['1']) category.push('driver')
-    if(maxScoreLetter === score['B'] && maxScoreNum === score['2']) category.push('driver')
-    if(maxScoreLetter === score['A'] && maxScoreNum === score['1']) category.push('driver')
-    if(maxScoreLetter === score['A'] && maxScoreNum === score['2']) category.push('driver')
-    if(maxScoreLetter === score['D'] && maxScoreNum === score['3']) category.push('amiable')
-    if(maxScoreLetter === score['D'] && maxScoreNum === score['4']) category.push('amiable')
-    if(maxScoreLetter === score['C'] && maxScoreNum === score['3']) category.push('amiable')
-    if(maxScoreLetter === score['C'] && maxScoreNum === score['4']) category.push('amiable')
-    if(maxScoreLetter === score['B'] && maxScoreNum === score['3']) category.push('expressive')
-    if(maxScoreLetter === score['B'] && maxScoreNum === score['4']) category.push('expressive')
-    if(maxScoreLetter === score['A'] && maxScoreNum === score['3']) category.push('expressive')
-    if(maxScoreLetter === score['A'] && maxScoreNum === score['4']) category.push('expressive')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['2']) if(!category.includes('analyzer')) category.push('analyser')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['1']) if(!category.includes('analyzer')) category.push('analyser')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['1']) if(!category.includes('analyzer')) category.push('analyser')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['2']) if(!category.includes('analyzer')) category.push('analyser')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['1']) if(!category.includes('driver')) category.push('driver')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['2']) if(!category.includes('driver')) category.push('driver')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['1']) if(!category.includes('driver')) category.push('driver')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['2']) if(!category.includes('driver')) category.push('driver')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['3']) if(!category.includes('amiable')) category.push('amiable')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['4']) if(!category.includes('amiable')) category.push('amiable')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['3']) if(!category.includes('amiable')) category.push('amiable')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['4']) if(!category.includes('amiable')) category.push('amiable')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['3']) if(!category.includes('expressive')) category.push('expressive')
+    if(maxScoreLetter === score['B'] && maxScoreNum === score['4']) if(!category.includes('expressive')) category.push('expressive')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['3']) if(!category.includes('expressive')) category.push('expressive')
+    if(maxScoreLetter === score['A'] && maxScoreNum === score['4']) if(!category.includes('expressive')) category.push('expressive')
 
     category.sort(function(a, b){
         if(a < b) { return -1; }
@@ -250,9 +250,11 @@ const calResult = () => {
     })
 
     $('#result-image').append(`<img src="./assets/svg/${category.toString()}.svg" />`)
-    $('#result-title').append(`You are a <br/> ${category.toString()?.replace(',', ' and ').toLocaleUpperCase()}`)
-    $('.show-results-heading').append(`${category[0].toUpperCase()}`);
-    $('.show-results-content').append(`${content[category[0]]}`);
+    $('#result-title').append(`You are a <br/> <b>${category.toString()?.replaceAll(',', ' and ').toLocaleUpperCase()}</b>`)
+    category.map((c, i) => {
+        $('#expressives').append(`<div class="show-results-heading">${category[i].toUpperCase()}</div>`);
+        $('#expressives').append(`<div class="show-results-content">${content[category[i]]}</div>`);
+    });
 
 
     // Switching the button 'Calculate Score' to 'Retake'
