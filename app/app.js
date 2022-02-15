@@ -258,6 +258,7 @@ const calResult = () => {
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
     document.getElementById('reset-button').style.display = 'inline';
+    document.getElementById('download').style.display = 'inline';
     $('#questionnaire-container').css('padding' , '0px')
     
     
@@ -294,6 +295,18 @@ const calResult = () => {
     }
 }
 
+const downloadPDF = () => {
+    var divContents = $("#result-div").html();
+    var printWindow = window.open('', '', 'height=400,width=800');
+    printWindow.document.write('<html><head><title>Presentation Skills</title>');
+    printWindow.document.write('<link rel="stylesheet" href="./app/printPDF.css" />');
+    printWindow.document.write('</head><body >');
+    printWindow.document.write(divContents);
+    printWindow.document.write('</body></html>');
+    printWindow.document.close();
+    printWindow.print();
+}
+
 // this function is called for resetting the qesutionnaire
 function resetQuestionnaire() {
 
@@ -314,6 +327,7 @@ function resetQuestionnaire() {
     // display the score after user clicks submit
     document.getElementById('result-div').style.display = 'none';
     document.getElementById('result-heading').innerHTML = `RESULTS`
+    document.getElementById('download').style.display = 'none';
 
     document.getElementById('result-button').disabled = true;
 }

@@ -213,6 +213,21 @@ progress {color: #d21242;}
   border-radius: 64px;
 }
 
+.downloadPDF {
+  margin: 20px;
+  margin-left: auto;
+  border: 1px solid #003366;
+  background-color: #003366;
+  color: #ffffff;
+  padding: 10px 25px;
+  font-size: 14px;
+  cursor: pointer;
+  border-radius: 46px;
+  display: flex;
+  justify-content: end;
+  margin-left: auto;
+}
+
 #nextPage {
   width: 250px;
 }
@@ -380,7 +395,7 @@ progress {color: #d21242;}
   -webkit-appearance: none;
   height: 13px;
   border-radius: 6px;
-  background: red;
+  background: white;
   outline: none;
   padding: 0;
   margin: 0;
@@ -393,7 +408,7 @@ progress {color: #d21242;}
   width: 25px;
   height: 25px;
   border-radius: 50%;
-  background: #D11138;
+  background: white;
   border: #939598 5px solid;
   cursor: pointer;
   -webkit-transition: background .15s ease-in-out;
@@ -428,6 +443,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
     color: #20315F;
     /* padding-top: 20px; */
     padding-bottom: 20px;
+    text-align: center;
 }
 
 #result-score-heading {
@@ -659,6 +675,15 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 
   #questionnaire-table td::before {
     padding: 0px 196px 65px 0px;
+  }
+
+  .downloadPDF {
+    font-size: 28px;
+  }
+
+  .downloadPDF > svg {
+    height: 33px;
+    width: 26px;
   }
   
 }
