@@ -302,7 +302,7 @@ progress {color: #d21242;}
 }
 
 #result-image > img {
-  width: 350px;
+  width: 448px;
 }
 
 #show-results {
@@ -326,6 +326,7 @@ progress {color: #d21242;}
 .show-results-heading {
   font-size: 1.2rem;
   padding-bottom: 1.2rem;
+  font-weight: bold;
 }
 
 #show-results thead {
@@ -687,6 +688,7 @@ input::-moz-focus-inner, input::-moz-focus-outer {
   #result-title {
     line-height: 76px;
     font-size: 42px;
+    padding-bottom: 20px;
   }
 
   #result-image > img {

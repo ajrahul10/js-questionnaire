@@ -250,7 +250,7 @@ const calResult = () => {
     })
 
     $('#result-image').append(`<img src="./assets/svg/${category.toString()}.svg" />`)
-    $('#result-title').append(`You are a <br/> <b>${category.toString()?.replaceAll(',', ' and ').toLocaleUpperCase()}</b>`)
+    $('#result-title').append(`You are <br/> <b>${category.toString()?.replaceAll(',', ' and ').toLocaleUpperCase()}</b>`)
     category.map((c, i) => {
         $('#expressives').append(`<div class="show-results-heading">${category[i].toUpperCase()}</div>`);
         $('#expressives').append(`<div class="show-results-content">${content[category[i]]}</div>`);

@@ -1,19 +1,19 @@
 num;left;right;isLetter
-1;goes along;takes charge;yes
-2;quiet;talkative;yes
-3;supportive;challenging;yes
-4;compliant;dominant;yes
-5;ask questions;makes statements;yes
-6;coorperative;competitve;yes
-7;introverted;extroverted;yes
-8;slow,studied;fast-paced;yes
-9;constrained;open;yes
-10;private;warm;no
-11;calm;excitable;no
-12;task oriented;people oriented;no
-13;eyes serious;eyes friendly;no
-14;talks only business;shares personal feelings;no
-15;reserved;outgoing;no
-16;wants/uses facts;wants/uses opinions;no
-17;does not express emotion;expresses emotion;no
-18;objective;personal;no
+1;Goes along;Takes charge;yes
+2;Quiet;Talkative;yes
+3;Supportive;Challenging;yes
+4;Compliant;Dominant;yes
+5;Ask questions;Makes statements;yes
+6;Coorperative;Competitve;yes
+7;Introverted;Extroverted;yes
+8;Slow and studied;Fast-paced;yes
+9;Constrained;Open;yes
+10;Private;Warm;no
+11;Calm;Excitable;no
+12;Task oriented;People oriented;no
+13;Eyes serious;Eyes friendly;no
+14;Talks only business;Shares personal feelings;no
+15;Reserved;Outgoing;no
+16;Wants/uses facts;Wants/Uses opinions;no
+17;Does not express emotion;Expresses emotion;no
+18;Objective;Personal;no
