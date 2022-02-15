@@ -329,7 +329,7 @@ function resetQuestionnaire() {
 const downloadPDF = () => {
     var divContents = $("#result-div").html();
     var printWindow = window.open('', '', 'height=400,width=900');
-    printWindow.document.write('<html><head><title>Presentation Skills</title>');
+    printWindow.document.write('<html><head><title>Emotional Intelligence Skills</title>');
     printWindow.document.write('<link rel="stylesheet" href="./app/printPDF.css" />');
     printWindow.document.write('</head><body >');
     printWindow.document.write(divContents);
