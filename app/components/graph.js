@@ -42,7 +42,7 @@ const plotResultGraph = (standardScore, normalisedScore, categories) => {
             opposite: true
         }],
         tooltip: {
-            shared: true
+            shared: true,
         },
         colors: [
         '#6d6e70', 
@@ -59,9 +59,9 @@ const plotResultGraph = (standardScore, normalisedScore, categories) => {
         legend: {
             layout: 'vertical',
             align: 'left',
-            x: 120,
+            x: 70,
             verticalAlign: 'top',
-            y: 100,
+            y: 30,
             floating: true,
             backgroundColor:
                 Highcharts.defaultOptions.legend.backgroundColor || // theme
@@ -77,7 +77,7 @@ const plotResultGraph = (standardScore, normalisedScore, categories) => {
             }
 
         }, {
-            name: 'Category total score',
+            name: 'Category score',
             type: 'spline',
             data: normalisedScore,
             tooltip: {
