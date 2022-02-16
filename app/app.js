@@ -1,6 +1,6 @@
 // number of questions
 let totalQuestions = 50
-let totalTablePages = 7
+let totalTablePages = 8
 let currPageNum = 1
 let questions = []
 let results = {}
@@ -283,6 +283,7 @@ const calResult = () => {
     document.getElementById('result-button').style.display = 'none';
     document.getElementById('reset-button').style.display = 'inline';
     document.getElementById('download').style.display = 'inline';
+    document.getElementById('instruction').style.display = 'none';
     $('#questionnaire-container').css('padding' , '0px')
     
     
@@ -322,6 +323,7 @@ function resetQuestionnaire() {
     // display the score after user clicks submit
     document.getElementById('result-div').style.display = 'none';
     document.getElementById('result-heading').innerHTML = `RESULTS`
+    document.getElementById('download').style.display = 'none';
 
     document.getElementById('result-button').disabled = true;
 }

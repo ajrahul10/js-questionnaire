@@ -431,6 +431,14 @@ input::-moz-focus-inner, input::-moz-focus-outer {
   border: 0;
 }
 
+#instruction {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
 #result-heading {
     color: #20315F;
     /* padding-top: 20px; */
@@ -595,6 +603,11 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 
   .result-content {
       font-size: 2.5em;
+  }
+
+  #instruction {
+    font-size: 34px;
+    padding: 0px 20px 50px 20px;
   }
 
   #result-button, #nextPage {
