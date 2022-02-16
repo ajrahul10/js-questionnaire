@@ -302,13 +302,13 @@ html {
   }
   
   #result-image > img {
-    width: 448px;
+    width: 300px;
   }
   
   #show-results {
     display: flex;
     flex-direction: row;
-    padding: 80px 100px;
+    padding: 0px;
     font-size: 1.2em;
     margin: auto;
     padding-bottom: 40px;

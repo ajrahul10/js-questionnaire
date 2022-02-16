@@ -131,6 +131,13 @@ progress {color: #d21242;}
   border: 1px solid #003366;
 }
 
+#instruction {
+  max-width: 800px;
+  text-align: center;
+  margin: auto;
+  font-size: 16px;
+}
+
 .container {
   display: block;
   position: relative;
@@ -308,7 +315,7 @@ progress {color: #d21242;}
 #show-results {
   display: flex;
   flex-direction: row;
-  padding: 80px 100px;
+  padding: 30px 50px;
   font-size: 1.2em;
   margin: auto;
   padding-bottom: 40px;
@@ -752,6 +759,11 @@ input::-moz-focus-inner, input::-moz-focus-outer {
 
   #questionnaire-table td::before {
     padding: 0px 196px 65px 0px;
+  }
+
+  #instruction {
+    font-size: 34px;
+    padding: 0px 20px 50px 20px;
   }
 
   .downloadPDF {

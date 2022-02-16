@@ -1,6 +1,6 @@
 // number of questions
 let totalQuestions = 18
-let totalTablePages = 2
+let totalTablePages = 3
 let currPageNum = 1
 let questions = []
 let results = {}
@@ -265,6 +265,7 @@ const calResult = () => {
     
     // Display the score after user clicks submit and unhiding the section
     $('#form-container').addClass('hidden')
+    $('#instruction').addClass('hidden')
     $('#result-div').removeClass('hidden')
 
 }
