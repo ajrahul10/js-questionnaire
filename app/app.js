@@ -1,6 +1,6 @@
 // number of questions
 let totalQuestions = 80
-let totalTablePages = 10
+let totalTablePages = 12
 let currPageNum = 1
 let questions = []
 let results = {}
@@ -257,6 +257,7 @@ const calResult = () => {
     
     // Switching the button 'Calculate Score' to 'Retake'
     document.getElementById('result-button').style.display = 'none';
+    document.getElementById('instruction').style.display = 'none';
     document.getElementById('reset-button').style.display = 'inline';
     document.getElementById('download').style.display = 'inline';
     $('#questionnaire-container').css('padding' , '0px')

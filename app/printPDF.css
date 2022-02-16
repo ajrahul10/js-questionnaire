@@ -441,6 +441,8 @@ html {
       color: #20315F;
       /* padding-top: 20px; */
       padding-bottom: 20px;
+      margin: 20px auto;
+      text-align:center;
   }
   
   #result-score-heading {
