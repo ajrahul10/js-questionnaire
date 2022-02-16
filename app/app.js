@@ -336,6 +336,7 @@ const downloadPDF = () => {
     printWindow.document.write('</head><body >');
     printWindow.document.write(divContents);
     printWindow.document.write('</body></html>');
+    await new Promise(resolve => setTimeout(resolve, 1000)); // wait 1 sec to load css and images
     printWindow.document.close();
     printWindow.print();
 }
