@@ -297,7 +297,7 @@ function resetQuestionnaire() {
 
 const downloadPDF = () => {
     var divContents = $("#result-div").html();
-    var printWindow = window.open('', '', 'height=400,width=800');
+    var printWindow = window.open('', '', 'height=400,width=1200');
     printWindow.document.write('<html><head><title>Communication Skills</title>');
     printWindow.document.write('<link rel="stylesheet" href="./app/printPDF.css" />');
     printWindow.document.write('</head><body >');
