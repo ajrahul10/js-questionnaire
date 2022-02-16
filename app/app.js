@@ -328,7 +328,7 @@ function resetQuestionnaire() {
     document.getElementById('result-button').disabled = true;
 }
 
-const downloadPDF = () => {
+const downloadPDF = async () => {
     var divContents = $("#result-div").html();
     var printWindow = window.open('', '', 'height=400,width=900');
     printWindow.document.write('<html><head><title>Emotional Intelligence Skills</title>');
