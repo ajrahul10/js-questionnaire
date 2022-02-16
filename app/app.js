@@ -296,7 +296,7 @@ const calResult = () => {
     }
 }
 
-const downloadPDF = () => {
+const downloadPDF = async () => {
     var divContents = $("#result-div").html();
     var printWindow = window.open('', '', 'height=400,width=800');
     printWindow.document.write('<html><head><title>Presentation Skills</title>');
@@ -304,6 +304,7 @@ const downloadPDF = () => {
     printWindow.document.write('</head><body >');
     printWindow.document.write(divContents);
     printWindow.document.write('</body></html>');
+    await new Promise(resolve => setTimeout(resolve, 1000)); // wait 1 sec to load css and images
     printWindow.document.close();
     printWindow.print();
 }
