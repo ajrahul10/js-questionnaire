@@ -226,10 +226,10 @@ const calResult = () => {
     console.log(maxScoreLetter, maxScoreNum, score)
 
     let category = []
-    if(maxScoreLetter === score['D'] && maxScoreNum === score['2']) if(!category.includes('analyzer')) category.push('analyser')
-    if(maxScoreLetter === score['D'] && maxScoreNum === score['1']) if(!category.includes('analyzer')) category.push('analyser')
-    if(maxScoreLetter === score['C'] && maxScoreNum === score['1']) if(!category.includes('analyzer')) category.push('analyser')
-    if(maxScoreLetter === score['C'] && maxScoreNum === score['2']) if(!category.includes('analyzer')) category.push('analyser')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['2']) if(!category.includes('analyser')) category.push('analyser')
+    if(maxScoreLetter === score['D'] && maxScoreNum === score['1']) if(!category.includes('analyser')) category.push('analyser')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['1']) if(!category.includes('analyser')) category.push('analyser')
+    if(maxScoreLetter === score['C'] && maxScoreNum === score['2']) if(!category.includes('analyser')) category.push('analyser')
     if(maxScoreLetter === score['B'] && maxScoreNum === score['1']) if(!category.includes('driver')) category.push('driver')
     if(maxScoreLetter === score['B'] && maxScoreNum === score['2']) if(!category.includes('driver')) category.push('driver')
     if(maxScoreLetter === score['A'] && maxScoreNum === score['1']) if(!category.includes('driver')) category.push('driver')
